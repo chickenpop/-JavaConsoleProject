@@ -2,66 +2,80 @@ package hosptial.myPage;
 
 public class medicalInfo {
 	
-	private String PatientName;
-	private String RegNo;
-	private String Symptom;
-	private String Date;
-	private String Hospital;
-	private String Time;
-	private String DoctorName;
+	private String patientName;
+	private String regNo;
+	private String date;
+	private String hospital;
+	private String time;
+	private String doctorName;
+	private String department;
 	
-	public medicalInfo(String patientName, String regNo, String symptom, String date, String hospital, String time,
-			String doctorName) {
+	public medicalInfo(String patientName, String regNo, String date, String hospital, String time, String doctorName,
+			String department) {
 		super();
-		PatientName = patientName;
-		RegNo = regNo;
-		Symptom = symptom;
-		Date = date;
-		Hospital = hospital;
-		Time = time;
-		DoctorName = doctorName;
+		this.patientName = patientName;
+		this.regNo = regNo;
+		this.date = date;
+		this.hospital = hospital;
+		this.time = time;
+		this.doctorName = doctorName;
+		this.department = department;
 	}
+
 	public String getPatientName() {
-		return PatientName;
+		return patientName;
 	}
+
 	public void setPatientName(String patientName) {
-		PatientName = patientName;
+		this.patientName = patientName;
 	}
+
 	public String getRegNo() {
-		return RegNo;
+		return regNo;
 	}
+
 	public void setRegNo(String regNo) {
-		RegNo = regNo;
+		this.regNo = regNo;
 	}
-	public String getSymptom() {
-		return Symptom;
-	}
-	public void setSymptom(String symptom) {
-		Symptom = symptom;
-	}
+
 	public String getDate() {
-		return Date;
+		return date;
 	}
+
 	public void setDate(String date) {
-		Date = date;
+		this.date = date;
 	}
+
 	public String getHospital() {
-		return Hospital;
+		return hospital;
 	}
+
 	public void setHospital(String hospital) {
-		Hospital = hospital;
+		this.hospital = hospital;
 	}
+
 	public String getTime() {
-		return Time;
+		return time;
 	}
+
 	public void setTime(String time) {
-		Time = time;
+		this.time = time;
 	}
+
 	public String getDoctorName() {
-		return DoctorName;
+		return doctorName;
 	}
+
 	public void setDoctorName(String doctorName) {
-		DoctorName = doctorName;
+		this.doctorName = doctorName;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 	
 }

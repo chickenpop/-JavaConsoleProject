@@ -110,15 +110,14 @@ public class myPageWork {
 		
 		if (result != null) {
 			
-			System.out.println("[회원이름]\t[주민번호]\t[증상]\t[날짜]\t[병원명]\t[시간]\t[의사이름]");
-			System.out.printf("%s\t%2s\t%2s\t%2s\t%s\t%s\t%s\n"
+			System.out.printf("[회원이름] %s\n[주민번호] %s\n[날짜] %s\n[병원명] %s\n[예약시간] %s\n[의사이름] %s\n[진료과] %s\n"
 					, result.getPatientName()
 					, result.getRegNo()
-					, result.getSymptom()
 					, result.getDate()
 					, result.getHospital()
 					, result.getTime()
-					, result.getDoctorName());
+					, result.getDoctorName()
+					, result.getDepartment());
 		}
 
 		System.out.println();

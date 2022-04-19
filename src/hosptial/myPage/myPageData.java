@@ -89,11 +89,11 @@ public class myPageData {
 				String line = String.format("%s,%s,%s,%s,%s,%s,%s\n"
 											, b.getPatientName()
 											, b.getRegNo()
-											, b.getSymptom()
 											, b.getDate()
 											, b.getHospital()
+											, b.getTime()
 											, b.getDoctorName()
-											, b.getTime());
+											, b.getDepartment());
 				writer.write(line);
 			}
 
