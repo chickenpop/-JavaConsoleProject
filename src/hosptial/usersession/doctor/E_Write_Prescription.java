@@ -48,101 +48,104 @@ public class E_Write_Prescription {
 		System.out.println("========================================");
 		System.out.print("처방전 작성 환자 선택(예시 1): ");
 		String in = scan.nextLine();
-		Prescription pick = plist.get(Integer.parseInt(in)-1);
-		System.out.printf("선택환자 : %s, %s\n", pick.getPatientName(), pick.getRegNum());
-		// 처방약과 질병코드를 입력
-		System.out.println("처방약과 질병코드를 입력하세요");
-
-		// 의사가 작성할수있게 만들기
-		System.out.print("처방약 : ");
-		String medicine = scan.nextLine();
-		pick.setMedicine(medicine);
-
-		// 의사가 작성할수있게 만들기
-		System.out.print("질병코드 : ");
-		String code = scan.nextLine();
-		pick.setDiseaseCode(code);
-		System.out.println("========================================");
-		System.out.println("\t    작성된 처방전");
-		System.out.println("========================================");
-		System.out.printf("처방전 환자명: %s\n주민번호: %s\n처방약:%s\n질병코드: %s\n"
-								, pick.getPatientName()
-								, pick.getRegNum()
-								, pick.getMedicine()
-								, pick.getDiseaseCode());
-		
-		/*
-		 
-		   * 0 patientType
-		   * 유광재 patientName
-		   * 951227-169638 regNum
-		   * 1  doctorType
-		   * 이성원 String
-		   * 바마마병원 hospitalName
-		   * 우을증약 medicine
-		   * 치의학과 department
-		   * A544 diseaseCode
-		   
-		 */
-		//System.out.println("처방전 작성 현황");
-		//System.out.println(pick.toString());
-		for(Prescription pre : prescription) {
-			if(pre.getPatientName().equals(pick.getPatientName()) && pre.getDoctorName().equals(pick.getDoctorName())) {
-				pre = pick;
+		if(!in.equals("0")) {
+			Prescription pick = plist.get(Integer.parseInt(in)-1);
+			System.out.printf("선택환자 : %s, %s\n", pick.getPatientName(), pick.getRegNum());
+			// 처방약과 질병코드를 입력
+			System.out.println("처방약과 질병코드를 입력하세요");
+	
+			// 의사가 작성할수있게 만들기
+			System.out.print("처방약 : ");
+			String medicine = scan.nextLine();
+			pick.setMedicine(medicine);
+	
+			// 의사가 작성할수있게 만들기
+			System.out.print("질병코드 : ");
+			String code = scan.nextLine();
+			pick.setDiseaseCode(code);
+			System.out.println("========================================");
+			System.out.println("\t    작성된 처방전");
+			System.out.println("========================================");
+			System.out.printf("처방전 환자명: %s\n주민번호: %s\n처방약:%s\n질병코드: %s\n"
+									, pick.getPatientName()
+									, pick.getRegNum()
+									, pick.getMedicine()
+									, pick.getDiseaseCode());
+			
+			/*
+			 
+			   * 0 patientType
+			   * 유광재 patientName
+			   * 951227-169638 regNum
+			   * 1  doctorType
+			   * 이성원 String
+			   * 바마마병원 hospitalName
+			   * 우을증약 medicine
+			   * 치의학과 department
+			   * A544 diseaseCode
+			   
+			 */
+			//System.out.println("처방전 작성 현황");
+			//System.out.println(pick.toString());
+			for(Prescription pre : prescription) {
+				if(pre.getPatientName().equals(pick.getPatientName()) && pre.getDoctorName().equals(pick.getDoctorName())) {
+					pre = pick;
+				}
 			}
+			
+			patientSave(prescription);
+			System.out.println("========================================");
+			System.out.println("처방전 작성 완료");
+			System.out.println("========================================");
+			
+	//		try {
+	//
+	//			// 예약한 환자 목록중 이름하고 주민번호 받아오기
+	//			BufferedReader patientReservationReader =
+	//					new BufferedReader(new FileReader(DataPath.환자목록));
+	//
+	//			String patientReservationLine = null;
+	//			while ((patientReservationLine = patientReservationReader.readLine()) != null) {
+	//
+	//			}
+	//
+	//			// 읽기 종료
+	//			patientReservationReader.close();
+	//
+	//			// 처방전 불러오기
+	//			BufferedReader prescriptionReader = new BufferedReader(new FileReader(DataPath.처방전));
+	//
+	//			String precriptionLine = null;
+	//			String[] tmp = new String[9];
+	//			while ((precriptionLine = prescriptionReader.readLine()) != null) {
+	//
+	//				// 0,이경석,240411-226413,1,박형동,차사가병원,감기약,소아청소년과,B1026
+	//				// 212,1,hqr4z4,8Tpd2w48Ns,최진신,010-8477-7115,인천광역시 강북구 대치동,761102-123435
+	//
+	//				tmp = precriptionLine.split(",");
+	//
+	//				System.out.printf("0,%s,%s,1,%s,%s,%s,%s,%s",
+	//						tmp[1], tmp[2], doctorUser.getName(), doctorUser.getHospitalName(),
+	//						medicine, doctorUser.getDepartment(), code);
+	//				System.out.println();
+	//
+	//				// 메모리 배열 즉 저장
+	//				patientSave(prescription);
+	//
+	//			} // while
+	//
+	//			// 읽기 종료
+	//			prescriptionReader.close();
+	//
+	//
+	//		} catch (Exception e) {
+	//			System.out.println("E_Prescription.prescription");
+	//			e.printStackTrace();
+	//		}
+
+		} else {
+			System.out.println("이전페이지로 돌아갑니다");
 		}
-		
-		patientSave(prescription);
-		System.out.println("========================================");
-		System.out.println("처방전 작성 완료");
-		System.out.println("========================================");
-		
-//		try {
-//
-//			// 예약한 환자 목록중 이름하고 주민번호 받아오기
-//			BufferedReader patientReservationReader =
-//					new BufferedReader(new FileReader(DataPath.환자목록));
-//
-//			String patientReservationLine = null;
-//			while ((patientReservationLine = patientReservationReader.readLine()) != null) {
-//
-//			}
-//
-//			// 읽기 종료
-//			patientReservationReader.close();
-//
-//			// 처방전 불러오기
-//			BufferedReader prescriptionReader = new BufferedReader(new FileReader(DataPath.처방전));
-//
-//			String precriptionLine = null;
-//			String[] tmp = new String[9];
-//			while ((precriptionLine = prescriptionReader.readLine()) != null) {
-//
-//				// 0,이경석,240411-226413,1,박형동,차사가병원,감기약,소아청소년과,B1026
-//				// 212,1,hqr4z4,8Tpd2w48Ns,최진신,010-8477-7115,인천광역시 강북구 대치동,761102-123435
-//
-//				tmp = precriptionLine.split(",");
-//
-//				System.out.printf("0,%s,%s,1,%s,%s,%s,%s,%s",
-//						tmp[1], tmp[2], doctorUser.getName(), doctorUser.getHospitalName(),
-//						medicine, doctorUser.getDepartment(), code);
-//				System.out.println();
-//
-//				// 메모리 배열 즉 저장
-//				patientSave(prescription);
-//
-//			} // while
-//
-//			// 읽기 종료
-//			prescriptionReader.close();
-//
-//
-//		} catch (Exception e) {
-//			System.out.println("E_Prescription.prescription");
-//			e.printStackTrace();
-//		}
-
-
 
 	}// main
 
