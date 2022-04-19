@@ -17,7 +17,7 @@ public class FindRespiratoryClinicList {
 		boolean loop = true;
 		while(loop) {
 			
-			CovidOutput.findPageLarge("호흡기 클리닉");
+			CovidOutput.findPage("호흡기 클리닉", true);
 			if(list.size() > 0) {
 				System.out.println("[번호]\t[시도]\t[시군구]\t\t[기관명]\t\t\t[주소]\t\t\t\t\t[운영시간]\t\t\t\t[전화번호]");
 				
@@ -46,14 +46,14 @@ public class FindRespiratoryClinicList {
 											, s.getPhoneNumber());
 				});
 				
-				CovidOutput.Largebar();
+				CovidOutput.bar(false);
 				System.out.println("공: 공휴일 평: 평일 주: 주말 신속항원검사(RAT) 가능: *");
-				System.out.println("목록 출력이 완료되었습니다.");
 			} else {
 				System.out.println("해당되는 목록이 없습니다.");
+				CovidOutput.bar(false);
 			}
 			
-			System.out.println("0.다시검색하기");
+			System.out.print("0.다시검색하기:");
 			String keyWord = sc.nextLine();
 			
 			if(keyWord.equals("0")) {

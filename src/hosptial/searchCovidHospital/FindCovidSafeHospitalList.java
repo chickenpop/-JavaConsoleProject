@@ -17,7 +17,7 @@ public class FindCovidSafeHospitalList {
 		boolean loop = true;
 		while(loop) {
 			
-			CovidOutput.findPageSmall("국민안심병원");
+			CovidOutput.findPage("국민안심병원");
 			if(list.size() > 0) {
 
 				System.out.println("[번호]\t[시도]\t[시군구]\t\t[기관명]\t\t\t[유형]\t\t\t[전화번호]");
@@ -31,13 +31,13 @@ public class FindCovidSafeHospitalList {
 											, (c.getTypeOFthreatment().equals("A") ? "외래진료" : "외래진료 및 입원")
 											, c.getPhoneNumber());
 				}		
-				CovidOutput.Smallbar();
-				System.out.println("목록 출력이 완료되었습니다.");
+				CovidOutput.bar(true);
 			} else {
 				System.out.println("해당되는 목록이 없습니다.");
+				CovidOutput.bar(true);
 			}
 			
-			System.out.println("0.다시검색하기");
+			System.out.print("0.다시검색하기: ");
 			String keyWord = sc.nextLine();
 			
 			if(keyWord.equals("0")) {
