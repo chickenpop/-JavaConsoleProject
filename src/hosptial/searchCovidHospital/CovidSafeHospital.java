@@ -1,19 +1,12 @@
 package hosptial.searchCovidHospital;
 
-// 국민안심병원
+/**
+ * 국민 안심병원 데이터를 넣을 수 있는 클래스입니다.
+ * @author 박채은
+ *
+ */
 public class CovidSafeHospital {
 
-	/*
-	
-	  시도 city_do
-	  시군구 si_gu_gun
-	  기관명 hospitalName
-	  주소 hospitaladress
-	  진료유형 typeOfTreatment : A: 외래진료, B: 외래진료 및 입원
-	  전화번호 phoneNumber
-	  
-	*/
-	
 	private String city_do;
 	private String si_gu_gun;
 	private String hospitalName;
@@ -21,6 +14,16 @@ public class CovidSafeHospital {
 	private String typeOFthreatment;
 	private String phoneNumber;
 	
+
+	/**
+	 * 국민안심병원 데이터를 넣는 클래스의 생성자는 모든 매개변수를 넣어야합니다.
+	 * @param city_do 시도
+	 * @param si_gu_gun 시군구
+	 * @param hospitalName 병원 기관명
+	 * @param hospitaladress 병원 주소
+	 * @param typeOFthreatment 진료 유형 A : 외래진료, B : 외래진료 및 입원
+	 * @param phoneNumber 병원 전화번호
+	 */
 	public CovidSafeHospital(String city_do, String si_gu_gun, String hospitalName,
 			String hospitaladress, String typeOFthreatment, String phoneNumber) {
 		this.city_do = city_do;

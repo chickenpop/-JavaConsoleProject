@@ -1,21 +1,11 @@
 package hosptial.searchCovidHospital;
-
-// 호흡기 클리닉 
+ 
+/**
+ * 호흡기 클리닉 데이터를 넣을 수 있는 클래스입니다.
+ * @author 박채은
+ *
+ */
 public class RespiratoryClinic {
-
-	/*
-	
-	  시도 city_do
-	  시군구 si_gu_gun
-	  기관명 hospitalName
-	  신속항원검사 rat : O, X
-	  주소 hospitaladress
-	  운영시간 공휴일 hospitalOperatingTimeHoliday
-	  운영시간 평일 hospitalOperatingTimeWeekday
-	  운영시간 주말 hospitalOperatingTimeWeekend
-	  전화번호 phoneNumber
-	
-	*/
 
 	private String city_do;
 	private String si_gu_gun;
@@ -27,6 +17,18 @@ public class RespiratoryClinic {
 	private String hospitalOperatingTimeWeekend;
 	private String phoneNumber;
 	
+	/**
+	 * 호흡기 클리닉 데이터를 넣는 클래스의 생성자는 모든 매개변수를 넣어야합니다.
+	 * @param city_do 시도
+	 * @param si_gu_gun 시군구
+	 * @param hospitalName 병원 기관명
+	 * @param rat 신속항원검사 : O, X
+	 * @param hospitaladress 병원 주소
+	 * @param hospitalOperatingTimeHoliday 병원 운영시간 공휴일
+	 * @param hospitalOperatingTimeWeekday 병원 운영시간 평일
+	 * @param hospitalOperatingTimeWeekend 병원 운영시간 주말
+	 * @param phoneNumber 병원 전화번호
+	 */
 	public RespiratoryClinic(String city_do, String si_gu_gun, String hospitalName, String rat,
 			String hospitaladress, String hospitalOperatingTimeHoliday,
 			String hospitalOperatingTimeWeekday, String hospitalOperatingTimeWeekend,

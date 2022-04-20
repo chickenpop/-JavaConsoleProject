@@ -5,8 +5,16 @@ import java.util.Scanner;
 import hosptial.domain.User;
 import hosptial.login.LoginOutput;
 
+/**
+ * 코로나 안심병원 서비스의 메뉴 클래스입니다.
+ * @author 박채은
+ *
+ */
 public class SearchCovidHospitalMain  {	
 	
+	/**
+	 * 코로나 안심병원 서비스의 메뉴를 출력하고, 검색창으로 이동할 수 있습니다.
+	 */
 	public void searchCovidHospital() {
 		
 		// 데이터 로드
