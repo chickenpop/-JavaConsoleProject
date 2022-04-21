@@ -1,26 +1,39 @@
 package hosptial.signup;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import hosptial.DataPath;
-
+/**
+ * 유저 회원가입시 입력받을 데이터의 순서를 알려주는 클래스입니다.
+ * @author joung
+ *
+ */
 public class UserSignup {
 	private static Scanner sc = new Scanner(System.in);;
 	private boolean escape = false;
 	private LogicCheck logicCheck;
 	private ArrayList<String> input;
 	private ArrayList<String> doctorInput;
-	
+	/**
+	 * 유효성 검사를 위해 현재 회원가입이 되어있는 계정 정보를 초기화시켜주는 메서드입니다.
+	 * @author joung
+	 *
+	 */
 	public UserSignup() {
 		input = new ArrayList<>();
 		doctorInput = new ArrayList<>(5);
 		logicCheck = new LogicCheck();
 	}
-	
+	/**
+	 * 회원가입 유저 유형에따라 입력받을 정보를 달리할 메서드입니다.
+	 * @param userType 회원가입 유저 유형구분 매개변수입니다.
+	 */
 	public void idInputCheck(String userType) {
 		if(!(userType.equals("0") || userType.equals("1"))) {
 			System.out.println("userType error");
@@ -52,6 +65,11 @@ public class UserSignup {
 			}//if
 		}//while :: id
 	}
+	/**
+	 * 비밀번호 입력시 유효성 검사에 값을 넘겨주는 메서드입니다.
+	 * @author joung
+	 *
+	 */
 	public void pwInputCheck() {
 		boolean loop = true;
 		while(loop) {
@@ -70,7 +88,11 @@ public class UserSignup {
 			}//if
 		}//while :: pw
 	} 
-	
+	/**
+	 * 이름 입력시 유효성 검사에 값을 넘겨주는 메서드입니다.
+	 * @author joung
+	 *
+	 */
 	public void nameInputCheck() {
 		boolean loop = true;
 		while(loop) {
@@ -89,7 +111,11 @@ public class UserSignup {
 			}//if
 		}//while :: pw
 	} 
-	
+	/**
+	 * 전화번호 입력시 유효성 검사에 값을 넘겨주는 메서드입니다.
+	 * @author joung
+	 *
+	 */
 	public void phoneNumberInputCheck() {
 		boolean loop = true;
 		while(loop) {
@@ -116,7 +142,11 @@ public class UserSignup {
 			}//if
 		}//while :: pw
 	} 
-	
+	/**
+	 * 주소 입력시 유효성 검사에 값을 넘겨주는 메서드입니다.
+	 * @author joung
+	 *
+	 */
 	public void addressInputCheck() {
 
 		boolean loop = true;
@@ -137,7 +167,11 @@ public class UserSignup {
 			}//if
 		}//while :: pw
 	}
-	
+	/**
+	 * 주민번호 입력시 유효성 검사에 값을 넘겨주는 메서드입니다.
+	 * @author joung
+	 *
+	 */
 	public void regNoInputCheck() {
 		boolean loop = true;
 		while(loop) {
@@ -164,7 +198,11 @@ public class UserSignup {
 			}//if
 		}//while :: pw
 	} 
-	
+	/**
+	 * 병원이름 입력시 유효성 검사에 값을 넘겨주는 메서드입니다.
+	 * @author joung
+	 *
+	 */
 	//병원이름
 	public void hospitalNameInputCheck() {
 
@@ -186,8 +224,10 @@ public class UserSignup {
 			}//if
 		}//while :: pw
 	}
-	
-//	//오픈시간
+	/**
+	 * 운영시간 입력시 유효성 검사에 값을 넘겨주는 메서드입니다.
+	 * @param openDayType 평일 주말 공휴일 입력을 구분하는 매개변수입니다
+	 */
 	public void operatingTimeInputCheck(int openDayType) {
 		//1. 평일, 2. 주말, 3. 공휴일
 		if(openDayType==3) {
@@ -216,7 +256,11 @@ public class UserSignup {
 			}//if
 		}//while :: pw
 	} 
-	
+	/**
+	 * 의사면허 입력시 유효성 검사에 값을 넘겨주는 메서드입니다.
+	 * @author joung
+	 *
+	 */
 	public void licenseNumberInputCheck() {
 		boolean loop = true;
 		while(loop) {
@@ -235,7 +279,11 @@ public class UserSignup {
 			}//if
 		}//while :: pw
 	} 
-	
+	/**
+	 * 진료과 입력시 유효성 검사에 값을 넘겨주는 메서드입니다.
+	 * @author joung
+	 *
+	 */
 	public void departmentInputCheck() {
 		boolean loop = true;
 		while(loop) {
@@ -254,17 +302,24 @@ public class UserSignup {
 			}//if
 		}//while :: pw
 	} 
-	
+	/**
+	 * 회원가입 취소시 이전 메뉴로 돌아가기 위한 메서드입니다.
+	 * @return 취소 선택시 true를 리턴해 종료합니다.
+	 */
 	public boolean escapeCheck() {
 		return escape;
 	}
 	
-	
+	/**
+	 * 회원가입 성공시 데이터를 저장해주는 메서드입니다.
+	 * @param userType 회원 유형을 구분하는 매개변수입니다.
+	 */
 	public void save(String userType) {
 		
 		long sequence = logicCheck.getSequence();
-		
-		File file = new File(DataPath.userData);
+		String userPath = DataPath.userData;
+		spaceDelte(userPath);
+		File file = new File(userPath);
 		if(!file.exists())System.out.println("파일이 존재하지 않습니다.");
 		
 		try(BufferedWriter br = new BufferedWriter(new FileWriter(file, true));) {
@@ -284,9 +339,14 @@ public class UserSignup {
 		if("1".equals(userType)) doctorSave(sequence);
 		
 	}
-	
+	/**
+	 * 의사유저 회원가입 입력시 추가로 데이터를 저장해주는 메서드입니다.
+	 * @param sequence 의사 유형번호 확인 매개변수입니다.
+	 */
 	public void doctorSave(long sequence) {
-		File file = new File(".\\data\\UserDoctorDataTest.txt");
+		String path = DataPath.userDataDoctor;
+		spaceDelte(path);
+		File file = new File(path);
 		if(!file.exists()) System.out.println("파일이 존재하지 않습니다.");
 		
 		try(BufferedWriter br = new BufferedWriter(new FileWriter(file, true));) {
@@ -302,6 +362,38 @@ public class UserSignup {
 			e.printStackTrace();
 		}	
 		
+	}
+	/**
+	 * 파일에 데이터를 저장 한 이후 마지막 개행문자를 지워주는 메서드입니다.
+	 * @author joung
+	 *
+	 */
+	private void spaceDelte(String oldFilePath) {
+		File oldFile = new File(oldFilePath);
+		File newFile = new File(DataPath.temp);
+		try(BufferedReader br = new BufferedReader(new FileReader(oldFile));
+				BufferedWriter bw = new BufferedWriter(new FileWriter(new File(DataPath.temp)));) {
+			String lineToRemoveFromFile = "\n";
+			String lieFromuserfile;
+			boolean addnewLine = false;
+			while ((lieFromuserfile = br.readLine())!=null) {
+
+				String trimmedLine = lieFromuserfile.trim();
+				if(trimmedLine.equals(lineToRemoveFromFile)) {
+					continue;
+				}
+				if(addnewLine) {
+					bw.newLine();
+				} else {
+					addnewLine = true;
+				}
+				bw.append(lieFromuserfile);
+			}
+		} catch (Exception e) {
+			System.out.println("deleteLastLine 에러");
+		}
+		oldFile.delete();
+		newFile.renameTo(oldFile);
 	}
 
 }

@@ -1,6 +1,10 @@
 package hosptial.searchReservation;
 
-// 처방전 클래스
+/**
+ * 처방전을 작성하는 클래스입니다.
+ * @author 박선미
+ *
+ */
 public class Prescription {
 
 	/*
@@ -27,7 +31,18 @@ public class Prescription {
 	private String department;
 	private String diseaseCode;
 	
-	// constructor
+	/**
+	 * 
+	 * @param patientType 환자유형
+	 * @param patientName 환자이름
+	 * @param regNum 환자주민등록번호
+	 * @param doctorType 의사유형
+	 * @param doctorName 의사이름
+	 * @param hospitalName 병원이름
+	 * @param medicine 처방약
+	 * @param department 진료과목
+	 * @param diseaseCode 질병분류기호
+	 */
 	public Prescription(String patientType, String patientName, String regNum, String doctorType,
 			String doctorName, String hospitalName, String medicine, String department,
 			String diseaseCode) {

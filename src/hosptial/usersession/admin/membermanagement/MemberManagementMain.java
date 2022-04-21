@@ -3,6 +3,11 @@ package hosptial.usersession.admin.membermanagement;
 import java.util.Scanner;
 import hosptial.usersession.admin.membermanagement.memberboard.MemberDAO;
 
+/**
+ * 관리자의 멤버관리 메인클래스입니다.
+ * @author joung
+ *
+ */
 public class MemberManagementMain {
 
 	public void main() {
@@ -47,4 +52,5 @@ public class MemberManagementMain {
 			}
 		}//while
 	}
+	
 }

@@ -1,5 +1,10 @@
 package hosptial.Bbs;
-
+/**
+ * 
+ * @author KIMMINGYU
+ * 대답 데이터 생성자, getter, setter
+ *
+ */
 public class BbsAnswer {
 
 	private String bbsNo;
@@ -7,7 +12,14 @@ public class BbsAnswer {
 	private String userTypeCheck;
 	private String text;
 	private String date;
-	
+	/**
+	 * 
+	 * @param bbsNo 게시판번호
+	 * @param sequence 고유번호 
+	 * @param userTypeCheck 유저타입
+	 * @param text 대답
+	 * @param date 작성 날짜
+	 */
 	public BbsAnswer(String bbsNo, String sequence, String userTypeCheck, String text, String date) {
 		super();
 		this.bbsNo = bbsNo;

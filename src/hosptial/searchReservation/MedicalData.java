@@ -2,16 +2,22 @@ package hosptial.searchReservation;
 
 import java.util.Calendar;
 
+/**
+ * 진료내역을 저장하는 클래스입니다.
+ * @author 박선미
+ *
+ */
+
 public class MedicalData {
 	/*
 	 
-	 고길지 -환자이름
-	 370728-136349- 환자주민번호
-	 2022-04-18-진료날짜
-	 안기의원-병원
-	 10:00-예약시간
-	 황자웅-dr
-	 259-drnum
+	 고길지 patientName
+	 370728-136349 patientRegNo
+	 2022-04-18 reservationDate
+	 안기의원 hospitalName
+	 10:00 reservationTime
+	 황자웅 doctorName
+	 259 doctorNum
 	
 	   
 	 */
@@ -23,6 +29,17 @@ public class MedicalData {
 	private String reservationTime;
 	private String doctorName;
 	private String doctorNum;
+	
+	/**
+	 * 
+	 * @param patientName 환자이름
+	 * @param patientRegNo 환자주민등록번호
+	 * @param reservationDate 예약시간
+	 * @param hospitalName 병원이름
+	 * @param reservationTime 예약시간
+	 * @param doctorName 의사이름
+	 * @param doctorNum 의사회원번호
+	 */
 	
 	public MedicalData(String patientName, String patientRegNo, String reservationDate,
 			String hospitalName, String reservationTime, String doctorName, String doctorNum) {

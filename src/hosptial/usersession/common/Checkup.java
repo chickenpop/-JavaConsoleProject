@@ -1,5 +1,8 @@
 package hosptial.usersession.common;
-
+/**
+ * 건강검진을 예약하기 위한 모든 절차가 담긴 클래스입니다.
+ * 
+ */
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -20,7 +23,11 @@ public class Checkup {
 	public ArrayList<HosptialCheckUpList> hlist = new ArrayList<HosptialCheckUpList>();
 	// 환자이름,공통검사항목,성연령별검사항목,암검사항목
 	public String commonUserCheckList;
-
+	/**
+	 * 건강검진을 예약절차선택 클래스입니다.
+	 * @author 이지영
+	 * 
+	 */
 	public void checkup() {
 
 		// 데이터 로드
@@ -112,7 +119,12 @@ public class Checkup {
 			}
 		} // while
 	}// checkup
-
+	/**
+	 * 건강검진의 진료예약시간을 선택하는 메서드입니다.
+	 * 건강검진의 진료예약내역을 출력하기 위함이다
+	 * @author 박채은
+	 * 
+	 */
 	private boolean printTimeList(Calendar c, HosptialCheckUpList pick) {
 		// HosptialCheckUpList
 		// private String hosptialName;
@@ -177,18 +189,24 @@ public class Checkup {
 					list.add(d);
 					reader.close();
 					
+					// C:user//class//java//data.txt > 본인
+					// D:user//class//java//data.txt
+
+					
 					// new FileWriter(DataPath.건강검진내역), (false) > 덮어쓰기
 					// new FileWriter(DataPath.건강검진내역), true > 이어쓰기
 					BufferedWriter writer = new BufferedWriter(new FileWriter(DataPath.건강검진내역)); // true
 					String line2 = null;
 
 					for (Reservationdetail d3 : list) {
-
+						
 						line2 = String.format("%s,%s,%s,%s\n"
-													, d3.getPersonName()
-													, d3.getDate()
-													, d3.getHospitalcheckupName()
-													, d3.getHour());
+								, d3.getPersonName()
+								, d3.getDate()
+								, d3.getHospitalcheckupName()
+								, d3.getHour());	
+
+						
 
 						writer.write(line2);
 					}
@@ -210,7 +228,11 @@ public class Checkup {
 		
 	} // printTimeList
 
-
+	/**
+	 * 병원목록의 파일을 읽는 메서드입니다.
+	 * @author 이지영
+	 * 
+	 */
 	private void load() {
 		try {
 
@@ -232,26 +254,38 @@ public class Checkup {
 			e.printStackTrace();
 		}
 	}
-
+	/**
+	 * 회원이 자신의 나이에 해당하는 건강검진해당항목을 조회하는 메서드입니다.
+	 * @author 이지영
+	 * 
+	 */
 
 	private void test() {
 
-		System.out.println("======================================================");
+		System.out.println("======================================================================");
 		System.out.println("\t건강검진 해당 항목 조회창");
-		System.out.println("======================================================");
+		System.out.println("======================================================================");
+
+		//String file1 = "C:\\class\\java\\HospitalReservation\\data\\전체회원목록.txt";
+		// String file1 = "C:\\class\\java\\HospitalReservation\\data\\환자목록.txt";
+
+		Scanner sc;
 
 
 		try {
 
 			String value = user.getId();
 
-			Scanner sc = new Scanner(new FileInputStream(DataPath.userData)); //file1
+			sc = new Scanner(new FileInputStream(DataPath.userData));
 			while (sc.hasNextLine()) {
 				String str = sc.nextLine();
-
+				
+				if(str.length() < 3) continue;
+				
 				String[] arr = str.split(",");
-
+				
 				if (arr[2].equals(value)) {
+
 
 					System.out.println(arr[4] + "님 2022년 해당하는 건강검진 검사항목 입니다.");
 
@@ -259,6 +293,7 @@ public class Checkup {
 					String line = "";
 					while ((line = reader.readLine()) != null) {
 						System.out.println(line);
+
 
 					}
 
@@ -341,19 +376,23 @@ public class Checkup {
 					// { [환자이름, s1, s2, s3], [환자이름, s1, s2, s3]}
 					// 환자이름,s1,s2,s3
 					commonUserCheckList = String.format("%s,%s,%s,%s", user.getName(), s1, s2, s3);
-					reader.close();
+
 				}
 			}
 			System.out.println("이전 페이지로 돌아갑니다.");
 			Thread.sleep(3000);
-			System.out.println("======================================================");
-		
+			System.out.println("======================================================================");
 			sc.close();// 스캔추가시킴
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * 회원이 자신의 나이에 해당하는 건강검진해당항목에 맞는 병원만 조회할수있는 메서드입니다.
+	 * @author 박채은
+	 * 
+	 */
 
 	private void test1() {
 
@@ -371,6 +410,8 @@ public class Checkup {
 			while (sc.hasNextLine()) {
 				String str = sc.nextLine();
 
+				if(str.length() < 3) continue;
+				
 				String[] arr = str.split(",");
 
 				if (arr[2].equals(value)) {
@@ -443,6 +484,12 @@ public class Checkup {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * 건강검진예약일자를 선택하기 위한 메서드입니다.
+	 * 달력날짜의 요일을 출력하기 위함이다
+	 * @author 박채은
+	 * 
+	 */
 
 	private String getDAYOFWEEK(int dayofweek) {
 
@@ -461,7 +508,10 @@ public class Checkup {
 		else
 			return "토";
 	}
-
+	/**
+	 * 건강검진예약일자를 선택하기 위한 메서드입니다.
+	 * 
+	 */
 	private void printCalendar(int year, int month) {
 
 		int lastDay = getLastDay(year, month);
@@ -484,9 +534,12 @@ public class Checkup {
 		}
 
 	}
-
-
-	public static int getLastDay(int year, int month) {
+	/**
+	 * 건강검진예약일자를 선택하기 위한 메서드입니다.
+	 * 한달이 몇일인지 출력하기 위함이다
+	 * 
+	 */
+	private static int getLastDay(int year, int month) {
 
 		switch (month) {
 			case 1:
@@ -508,14 +561,21 @@ public class Checkup {
 		}
 		return 0;
 	}
-
-	public static boolean isLeafYear(int year) {
+	/**
+	 * 건강검진예약일자를 선택하기 위한 메서드입니다.
+	 * 
+	 */
+	private static boolean isLeafYear(int year) {
 
 		return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0 ? true : false;
 
 	}
-
-	public static int getWeek(int year, int month) {
+	/**
+	 * 건강검진예약일자를 선택하기 위한 메서드입니다.
+	 * 윤년계산
+	 * 
+	 */
+	private static int getWeek(int year, int month) {
 
 		int total = 0;
 		int date = 1;

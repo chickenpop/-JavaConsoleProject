@@ -9,12 +9,21 @@ import hosptial.DataPath;
 import hosptial.domain.DoctorUser;
 
 // 파일 데이터 <-> 메모리(배열)
+/**
+ * 
+ * @author 의사회원의 목록을 배열로 구성해서 앞에서 찾을수있게 만들어주는 클래스
+ *
+ */
 public class FindDoctorUserList {
 
 	// 프로그램 전체에서 사용될 데이터는 static으로 선언하기.
 
 	public static ArrayList<DoctorUser> doctorlist = new ArrayList<DoctorUser>();
 
+	/**
+	 * 
+	 * @param list 의사 회원의 리스트를 가져올수있게 텍스트파일을 버퍼드리더로 가져오는 메소드
+	 */
 	public static void doctorLoad(ArrayList<DoctorUser> list) {
 
 		try {
@@ -48,6 +57,11 @@ public class FindDoctorUserList {
 
 	}// load
 
+	/**
+	 * 
+	 * @param list
+	 * 의사 회원의 리스트를 가져온텍스트파일을 버퍼드라이터로 저장하는 메소드
+	 */
 	public static void doctorSave(ArrayList<DoctorUser> list) {
 		try {
 

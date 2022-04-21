@@ -9,9 +9,16 @@ import hosptial.LoginSession;
 import hosptial.domain.Admin;
 import hosptial.domain.CommonUser;
 import hosptial.domain.User;
-
+/**
+ * 관리자 로그인 클래스입니다.
+ * @author joung
+ *
+ */
 public class LoginAdmin {
-
+	/**
+	 * 관리자 로그인 메인 화면입니다.
+	 * @return 로그인 성공시 true를 리턴해 해당 유저에맞는 메뉴로 보내줍니다.
+	 */
 	public static boolean main() {
 		Scanner sc = new Scanner(System.in);
 		boolean loop = true;
@@ -41,6 +48,12 @@ public class LoginAdmin {
 		return true;
 
 	}
+	/**
+	 * 로그인시 입력받은 값이 실제 있는 계정인지 확인하는 메서드입니다.
+	 * @param id 입력받은 아이디
+	 * @param pw 입력받은 비밀번호
+	 * @return 로그인 성공시 true, 실패시 flase 반환
+	 */
 	private static boolean loginCheck(String id, String pw) {
 		
 		try {
@@ -66,7 +79,10 @@ public class LoginAdmin {
 
 		return false;
 	}
-
+	/**
+	 * 로그인 성공시 로그인 세션에 계정의 정보를 보내주는 메서드입니다.
+	 * @param info 로그인한 유저의 정보를 받아옵니다.
+	 */
 	private static void inputSesstion(String[] info) {
 		
 		try {
@@ -77,7 +93,11 @@ public class LoginAdmin {
 			e.printStackTrace();
 		}//try
 	}
-	
+	/**
+	 * 관리자 로그인이 맞는지 확인하는 메서드입니다.
+	 * @param userType -1 : 관리자, 0 : 일반 사용자, 1:의사 사용자입니다.
+	 * @return 관리자 계정이 맞다면 true, 틀리다면 false를 리턴해 로그인을 취소시킵니다.
+	 */
 	private static boolean userTypeCheck(String userType) {	
 		if("0".equals(userType)) {
 			LoginOutput.userTypeCommon();

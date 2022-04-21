@@ -11,6 +11,11 @@ import hosptial.DataPath;
 import hosptial.LoginSession;
 import hosptial.domain.User;
 
+/**
+ * 진료예약하는 클래스입니다.
+ * @author 박채은
+ *
+ */
 public class Reservation {
 	User user = LoginSession.getSession();
 	private String[] hosptialData;
@@ -21,17 +26,17 @@ public class Reservation {
 		this.hosptialDoctorName = hosptiaDoctorlName;
 	}
 	
-	// 달력 출력 > 날짜 선택 > 시간 선택 > 요청서 작성 > 완료
+	/**
+	 * 진료날짜,시간을 선택할수 있는 메서드입니다.
+	 * 원하는 진료날짜,시간을 입력받아 예약을 저장합니다.
+	 * 진료내역, 처방전 읽기쓰기를 할 수 있습니다.
+	 */
 	public void reservationHosptial() {
 
 		System.out.println("=====================================");
 		System.out.println("\t예약페이지");
 		System.out.println("=====================================");
 		
-//		for(String s : hosptialData) {
-//			System.out.println(s);
-//		}
-//		System.out.println(hosptialDoctorName);
 			    
 		
 		Calendar c = Calendar.getInstance();
@@ -97,9 +102,9 @@ public class Reservation {
 			
 			if(진료시간 >= Integer.parseInt(fristHour) && 진료시간 != breakHour && 진료시간 <= Integer.parseInt(lastHour)) {
 				System.out.println();
-				System.out.println("=======================================================");
+				System.out.println("===================================================================");
 				System.out.printf("%s님 %tF %s에 %s:00시에 진료예약이 완료되었습니다.\n", user.getName(), c, hosptialData[1], 진료시간);
-				System.out.println("=======================================================");
+				System.out.println("===================================================================");
 				System.out.println();
 				
 				try {
@@ -109,15 +114,12 @@ public class Reservation {
 					System.out.println("Reservation.printTimeList Thread Exception"); 
 					e.printStackTrace();
 				}
-				// 파일 저장에 넣을 리스트 작성해야함 < 파일읽기, 쓰기 하셔야합니다>
-				// 처방전(이미 있는 파일) 우선순위 2
+				// 파일 저장에 넣을 리스트 작성해야함 
+				// 처방전(이미 있는 파일) 
 				// 0,고길지,370728-136349,1,민길원,마아사병원,-,소아청소년과,-
 				
-				// 환자 정보, user.getXXX로 받아오시면 됩니다.
-				// 의사 정보, hosptialData 배열
+				
 				// 202,김진의원,9:00~18:00,9:00~18:00,미운영,62661,신경과
-				// 의사 이름, hosptialDoctorName
-				// time, 진료시간, 10:00로 저장됨 
 				String time = 진료시간 + ":00";
 				
 				// System.out.println("메인화면으로 돌아갑니다.");
@@ -125,7 +127,6 @@ public class Reservation {
 				// System.out.println(hosptialData[1]);
 				flag = false;
 				
-				// 0,유재동,920608-183288,1,고석광,차차사병원,비염약,정형외과,A831
 				ArrayList<Prescription> list = new ArrayList<Prescription>(150);
 				Prescription p = new Prescription("0", user.getName(), user.getRegNo(), "1", hosptialDoctorName, hosptialData[1], "-", hosptialData[6], "-");		
 				
@@ -148,7 +149,7 @@ public class Reservation {
 					reader.close();
 					
 					BufferedWriter writer = new BufferedWriter(new FileWriter(DataPath.처방전));
-					//처방전 쓰기작업(While문 안인지 밖인지 확인하고)
+					//처방전 쓰기작업
 					for(Prescription p3 : list) {
 						// 처방전
 						String line2 = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s\n"
@@ -174,11 +175,9 @@ public class Reservation {
 				// 진료내역 파일 읽기, 쓰기
 				// 환자이름, 주민번호, 진료날짜, 진료병원, 진료시간, 의사명, 의사번호
 				//고길지,370728-136349,2022-04-18,안기의원,10:00,황자웅,259
-				// 환자 정보, user.getXXX로 받아오시면 됩니다.
+				// 환자 정보, user.getXXX
 				// 의사 정보, hosptialData 배열
-				// 202,김진의원,9:00~18:00,9:00~18:00,미운영,62661,신경과
-				// 의사 이름, hosptialDoctorName
-				// time, 진료시간, 10:00로 저장됨
+
 				
 				ArrayList<MedicalData> mlist = new ArrayList<MedicalData>();
 				String cal = String.format("%tF", c); // 캘린더 날짜 데이터 형변환 String
@@ -190,8 +189,6 @@ public class Reservation {
 					String line = null;
 					
 					while ((line = reader.readLine()) != null) {
-						//고길지,370728-136349,2022-04-18,안기의원,10:00,황자웅,259
-						// 환자이름, 주민번호, 진료날짜, 진료병원, 진료시간, 의사명, 의사번호
 						String[] temp1 = line.split(",");
 						MedicalData m2 = new MedicalData(temp1[0], temp1[1], temp1[2], temp1[3], temp1[4], temp1[5], temp1[6]);
 						mlist.add(m2);
@@ -271,7 +268,7 @@ public class Reservation {
 	}
 
 	
-	public static int getLastDay(int year, int month) {
+	private int getLastDay(int year, int month) {
 		
 		switch(month){
 			case 1: case 3: case 5: case 7: case 8: case 10: case 12:
@@ -285,13 +282,15 @@ public class Reservation {
 		return 0;
 	}
 	
-	public static boolean isLeafYear(int year) {
+	
+	private boolean isLeafYear(int year) {
 		
 		return (year%4==0 && year%100!=0) || year%400==0 ? true : false;
 		
 	}
 	
-	public static int getWeek(int year, int month){
+	
+	private int getWeek(int year, int month){
 		
 		int total = 0;
 		int date = 1;

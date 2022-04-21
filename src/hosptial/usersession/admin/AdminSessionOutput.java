@@ -1,5 +1,10 @@
 package hosptial.usersession.admin;
 
+/**
+ * 관리자 세션 출력전용 클래스입니다.
+ * @author joung
+ *
+ */
 public class AdminSessionOutput {
 
 	public static void adminMain() {

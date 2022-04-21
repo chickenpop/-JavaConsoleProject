@@ -4,6 +4,11 @@ import java.util.Scanner;
 import hosptial.usersession.admin.forummanagement.forbidden.ForbiddenManagementBoard;
 import hosptial.usersession.admin.forummanagement.forumnboard.ForumnManagementBoard;
 
+/**
+ * 게시판관리 메인 화면입니다.
+ * @author joung
+ *
+ */
 public class ForumnManagementMain {
 
 	public void main() throws Exception {

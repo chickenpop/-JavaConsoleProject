@@ -1,9 +1,16 @@
 package hosptial.myPage;
 
 import java.util.Scanner;
-
+/**
+ * 
+ * @author KIMMINGYU
+ * 마이페이지 메인 클래스
+ *
+ */
 public class myPage {
-	
+	/**
+	 * 마이페이지 메인 메서드
+	 */
 	public void main() {
 		
 		myPageData.load();

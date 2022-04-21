@@ -5,15 +5,22 @@ import java.util.Scanner;
 
 import hosptial.LoginSession;
 import hosptial.domain.User;
-
+/**
+ * 
+ * @author KIMMINGYU
+ * 게시판 후기 작업 클래스
+ *
+ */
 public class BbsPostWork {
 
 	private Scanner scan;
-
+	
 	public BbsPostWork() {
 		this.scan = new Scanner(System.in);
 	}
-
+	/**
+	 * 후기 쓰기 메서드
+	 */
 	public void write() {
 
 		User user = LoginSession.getSession();
@@ -49,7 +56,9 @@ public class BbsPostWork {
 		System.out.println();
 
 	}
-
+	/**
+	 * 후기 목록 불러오기 메서드
+	 */
 	public void list() {
 
 		boolean loop = true;
@@ -86,7 +95,9 @@ public class BbsPostWork {
 		System.out.println();
 
 	}
-
+	/**
+	 * 목록 상세히 보기 메서드
+	 */
 	private void view() {
 
 		System.out.print("회원번호를 입력하세요. : ");
@@ -109,7 +120,9 @@ public class BbsPostWork {
 		System.out.println("========================================");
 
 	}
-
+	/**
+	 * 게시물 삭제 메서드
+	 */
 	private void delete() {
 
 		System.out.print("삭제할 게시물 선택(자신의 고유번호) : ");

@@ -1,9 +1,16 @@
 package hosptial.signup;
 
 import java.util.Scanner;
-
+/**
+ * 회원가입 유형 선택 클래스입니다.
+ * @author joung
+ *
+ */
 public class SignupMain {
-
+	/**
+	 * 회원가입 유형 선택 메서드입니다.
+	 * @author joung
+	 */
 	public void signUp() {
 
 		Scanner sc = new Scanner(System.in);

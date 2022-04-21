@@ -1,5 +1,10 @@
 package hosptial.myPage;
-
+/**
+ * 
+ * @author KIMMINGYU
+ * 진료내역 데이터 생성자, getter, setter
+ *
+ */
 public class medicalInfo {
 	
 	private String patientName;
@@ -9,9 +14,17 @@ public class medicalInfo {
 	private String time;
 	private String doctorName;
 	private String department;
-	
-	public medicalInfo(String patientName, String regNo, String date, String hospital, String time, String doctorName,
-			String department) {
+	/**
+	 * 
+	 * @param patientName - 환자이름
+	 * @param regNo - 주민번호
+	 * @param date - 진료날짜
+	 * @param hospital - 병원명
+	 * @param time - 진료시간
+	 * @param doctorName - 의사이름
+	 * @param department - 진료과
+	 */
+	public medicalInfo(String patientName, String regNo, String date, String hospital, String time, String doctorName, String department) {
 		super();
 		this.patientName = patientName;
 		this.regNo = regNo;

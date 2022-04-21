@@ -1,5 +1,10 @@
 package hosptial;
 
+/**
+ * 파일 입출력을 위한 파일 경로 클래스입니다.
+ * @author 박채은
+ *
+ */
 public class DataPath {
 
 	// 공통

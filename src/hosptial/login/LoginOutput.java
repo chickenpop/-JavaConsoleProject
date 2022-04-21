@@ -1,6 +1,11 @@
 package hosptial.login;
-
+/**
+ * 로그인 파트 전반적인 출력메서드를 담고있는 클래스입니다.
+ * @author joung
+ *
+ */
 public class LoginOutput {
+
 
 	public static void main() {
 		System.out.println("=====================================");

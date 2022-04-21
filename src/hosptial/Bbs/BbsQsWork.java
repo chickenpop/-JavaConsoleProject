@@ -5,7 +5,12 @@ import java.util.Scanner;
 
 import hosptial.LoginSession;
 import hosptial.domain.User;
-
+/**
+ * 
+ * @author KIMMINGYU
+ * 질의응답 작업 클래스
+ *
+ */
 public class BbsQsWork {
 
 	private Scanner scan;
@@ -13,7 +18,9 @@ public class BbsQsWork {
 	public BbsQsWork() {
 		this.scan = new Scanner(System.in);
 	}
-
+	/**
+	 * 질문하기 메서드
+	 */
 	public void question() {
 
 		User user = LoginSession.getSession();
@@ -42,7 +49,9 @@ public class BbsQsWork {
 		System.out.println();
 
 	}
-
+	/**
+	 * 질의응답 목록 메서드
+	 */
 	public void list() {
 
 		boolean loop = true;
@@ -79,7 +88,9 @@ public class BbsQsWork {
 		System.out.println("========================================");
 
 	}
-
+	/**
+	 * 질의응답 상세히 보기 메서드
+	 */
 	public void view() {
 
 		System.out.print("게시물 번호를 입력하세요. : ");
@@ -121,7 +132,9 @@ public class BbsQsWork {
 		String input1 = scan.nextLine();
 
 	}
-
+	/**
+	 * 대답하기 메서드
+	 */
 	public void answer() {
 
 		User user = LoginSession.getSession();

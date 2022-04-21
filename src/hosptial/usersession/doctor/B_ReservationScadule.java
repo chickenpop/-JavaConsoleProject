@@ -2,7 +2,17 @@ package hosptial.usersession.doctor;
 
 import java.util.Scanner;
 
+/**
+ * 
+ * @author 변창현 예약 스케줄 관리 클래스
+ *
+ */
+
 public class B_ReservationScadule {
+
+	/**
+	 * 예약 스케줄 관리로 넘어오면 메뉴창을 띄워준다. 그리고 환자예약목록 조회와 의사 스케줄 관리표를 띄워준다.
+	 */
 
 	public void reservationScadule() {
 

@@ -1,5 +1,10 @@
 package hosptial.domain;
 
+/**
+ * 모든 유저 계정의 최상위 클래스입니다.
+ * @author joung
+ *
+ */
 public class User {
 
 	private long sequence;		//식별번호

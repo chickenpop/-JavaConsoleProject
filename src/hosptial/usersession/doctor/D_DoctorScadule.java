@@ -4,13 +4,18 @@ import java.util.Scanner;
 import hosptial.LoginSession;
 import hosptial.domain.DoctorUser;
 
-public class D_DoctorScadule {
+/**
+ * 
+ * @author 변창현 의사 스케줄 관리를 보여주는 클래스
+ */
 
+public class D_DoctorScadule {
+	/**
+	 * 의사의 본인 스케줄 관리표를 보여주는 메소드이다.
+	 */
 	public void doctorScadule() {
 
 		Scanner sc = new Scanner(System.in);
-
-
 
 		while (true) {
 			System.out.println("==================================================");
@@ -38,7 +43,7 @@ public class D_DoctorScadule {
 				System.out.println("--------------------------------------------------");
 				System.out.printf("  %s님의 휴식시간은 12:00 ~ 14:00까지 입니다.\n", doctorUser.getName());
 				System.out.println("--------------------------------------------------");
-				
+
 //				FindDoctorUserList.doctorlist.stream().forEach(u -> {
 //					System.out.printf("%s", u.getName());
 //				});
@@ -49,7 +54,7 @@ public class D_DoctorScadule {
 				System.out.println("--------------------------------------------------");
 				System.out.printf("    %s님의 휴진일은 매주 수요일 입니다.\n", doctorUser.getName());
 				System.out.println("--------------------------------------------------");
-				
+
 			} else {
 				// 진료 마감시간
 				// 오후 6시 (18시)

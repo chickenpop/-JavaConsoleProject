@@ -1,5 +1,9 @@
 package hosptial.domain;
-
+/**
+ * 의사 계정입니다.
+ * @author joung
+ *
+ */
 public class DoctorUser extends User {
 	private String hospitalName;			//병원 이름
 	private String operatingTimeWeekdays;	//평일 운영 시간

@@ -1,5 +1,10 @@
 package hosptial.myPage;
-
+/**
+ * 
+ * @author KIMMINGYU
+ * 회원정보 데이터 생성자, getter, setter
+ *
+ */
 public class info {
 	
 	private String sequence;
@@ -10,7 +15,17 @@ public class info {
 	private String phoneNum;
 	private String address;
 	private String regNo;
-	
+	/**
+	 * 
+	 * @param sequence - 고유번호
+	 * @param userTypeCheck - 유저타입
+	 * @param id - 아이디
+	 * @param password - 비밀번호
+	 * @param name - 이름
+	 * @param phoneNum - 핸드폰번호
+	 * @param address - 주소
+	 * @param regNo - 주민번호
+	 */
 	public info(String sequence, String userTypeCheck, String id, String password, String name, String phoneNum,
 			String address, String regNo) {
 		super();

@@ -9,6 +9,11 @@ import java.io.IOException;
 import java.util.*;
 import hosptial.DataPath;
 
+/**
+ * 현재 설정된 금지어를 게시판 형태로 출력합니다.
+ * @author joung
+ *
+ */
 public class ForbiddenDAO {
 	Scanner sc = new Scanner(System.in);
 	Stack<ForbiddenVO> prev = new Stack<>();
@@ -17,10 +22,15 @@ public class ForbiddenDAO {
 	List<ForbiddenVO> forbiddenList = new ArrayList<>();
 	int page = 5;
 	
+	/**
+	 * 금지어 목록을 불러오는 생성자입니다.
+	 */
 	public ForbiddenDAO() {
 		setForbiddenList();
 	}
-	
+	/**
+	 * 금지어 목록이 담긴 파일을 읽어오는 메서드입니다.
+	 */
 	private void setForbiddenList() {
 		
 		File file = new File(DataPath.forbiddenWord);
@@ -50,7 +60,9 @@ public class ForbiddenDAO {
 		
 		pageSet();
 	}
-
+	/**
+	 * 금지어 게시판 페이지 설정 메서드입니다.
+	 */
 	private void pageSet() {
 		for(int i=forbiddenList.size()-1; i>=0; i--) {
 			next.push(forbiddenList.get(i));
@@ -60,7 +72,9 @@ public class ForbiddenDAO {
 			now.push(next.pop());
 		}
 	}
-	
+	/**
+	 * 금지어 게시판 다음목록 세팅 메서드입니다.
+	 */
 	public void nextPage() {
 		if(next.isEmpty()) {
 			System.out.println("==========================================");
@@ -85,6 +99,9 @@ public class ForbiddenDAO {
 		}
 
 	}
+	/**
+	 * 금지어 게시판 이전목록 세팅 메서드입니다.
+	 */
 	public void prevPage() {
 		if(prev.isEmpty()) {
 			System.out.println("==========================================");
@@ -108,7 +125,9 @@ public class ForbiddenDAO {
 			now.push(prev.pop());
 		}
 	}
-
+	/**
+	 * 금지어 목록을 게시판 형태로 출력해주는 메서드입니다.
+	 */
 	public void getForbiddenList() {
 		System.out.println("==========================================");
 		System.out.println("\t      <<금지어 목록>>");
@@ -126,7 +145,9 @@ public class ForbiddenDAO {
 		System.out.println("==========================================");
 		System.out.println("0.돌아가기, 1.이전목록, 2.다음목록, 3.추가, 4.삭제");
 	}
-	
+	/**
+	 * 금지어 추가 메서드입니다.
+	 */
 	public void forbiddenInsert() {
 		ForbiddenVO vo = new ForbiddenVO();
 		System.out.println("추가할 금지어를 입력해주세요.(취소:0)");
@@ -143,7 +164,6 @@ public class ForbiddenDAO {
 				System.out.println("forbiddenInsert Thread Error");
 				e.printStackTrace();
 			}
-			return;
 		}
 		vo.setWord(forbidden);
 		forbiddenList.add(vo);
@@ -158,7 +178,10 @@ public class ForbiddenDAO {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * 금지어 삭제 메서드입니다.
+	 * @param select 선택된 금지어 번호입니다.
+	 */
 	public void forbiddenDelete(int select) {
 		if(forbiddenList.isEmpty()) {
 			System.out.println("==========================================");
@@ -201,7 +224,10 @@ public class ForbiddenDAO {
 		}
 		delete();
 	}
-	
+	/**
+	 * 금지어 수정 후 파일에 저장해주는 메서드입니다.
+	 * @param word 설정 또는 삭제한 금지어를 담는 매개변수입니다.
+	 */
 	public void save(String word) {
 		File file = new File(DataPath.forbiddenWord);
 
@@ -212,7 +238,9 @@ public class ForbiddenDAO {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * 금지어 삭제시 생기는 공백을 제거하는 메서드입니다.
+	 */
 	public void delete() {
 		File newFile = new File(DataPath.temp);
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(newFile))) {

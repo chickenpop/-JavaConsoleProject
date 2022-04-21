@@ -2,12 +2,18 @@ package hosptial.usersession.doctor;
 
 import java.util.Scanner;
 import hosptial.LoginSession;
+import hosptial.Output;
 import hosptial.domain.DoctorUser;
 
+/**
+ * 
+ * @author 변창현 의사 회원 로그인후 제일 첫 페이지 메뉴창 입니다.
+ *
+ */
 public class A_DoctorSession {
 
 	DoctorUser user = (DoctorUser) LoginSession.getSession();
-	
+
 	public void main() {
 
 		// 전전으로 가고싶으면 void 말고 boolean 사용해볼것.
@@ -23,7 +29,8 @@ public class A_DoctorSession {
 			System.out.println("========================================");
 			System.out.println("1. 예약스케줄 관리");
 			System.out.println("2. 처방전 작성");
-			System.out.println("3. 통계보기");
+			System.out.println("3. 진료한 환자 통계보기");
+			System.out.println("4. 로그아웃");
 			System.out.println("0. 뒤로가기");
 			System.out.println("========================================");
 			System.out.print("번호 : ");
@@ -35,12 +42,13 @@ public class A_DoctorSession {
 
 			} else if (input == 1) {
 				reservationScadule.reservationScadule();
-
 			} else if (input == 2) {
 				prescription.prescription();
 			} else if (input == 3) {
 				patientAverage.patientAverage();
-				System.out.println("통계 보기"); // 3.로그아웃
+			} else if (input == 4) {
+				logoutCheck();
+				return;
 
 			} else {
 				System.out.println("잘못입력하셨습니다.");
@@ -49,5 +57,20 @@ public class A_DoctorSession {
 		} // while
 
 	}// main
+
+	private static void logoutCheck() {
+		if (LoginSession.getSession() != null) {
+			LoginSession.setSession(null);
+			try {
+				if (LoginSession.getSession() == null)
+					Output.logoutSuccess();
+			} catch (Exception e) {
+				System.out.println("로그아웃 시도중 에러가 발생했습니다.");
+				e.printStackTrace();
+			}
+		} else {
+			Output.logoutFail();
+		} // if
+	}// logoutCheck
 
 }// class

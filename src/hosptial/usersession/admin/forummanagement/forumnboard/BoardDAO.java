@@ -9,6 +9,11 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import hosptial.DataPath;
 
+/**
+ * 게시판관리 클래스입니다.
+ * @author joung
+ *
+ */
 public class BoardDAO {
 	Scanner sc = new Scanner(System.in);
 	Stack<BoardVO> prev = new Stack<>();
@@ -17,10 +22,16 @@ public class BoardDAO {
 	List<BoardVO> boardList = new ArrayList<>();
 	int page = 5;
 
+	/**
+	 * 게시판 목록을 불러오는 생성자입니다.
+	 */
 	public BoardDAO() {
 		setBoardList();
 	}
 	
+	/**
+	 * 게시판 목록의 데이터를 불러오는 메서드입니다.
+	 */
 	private void setBoardList() {
 		
 		File file = new File(DataPath.postscript);
@@ -52,7 +63,9 @@ public class BoardDAO {
 		}
 		pageSet();
 	}
-	
+	/**
+	 * 게시판 페이지 설정 메서드입니다.
+	 */
 	private void pageSet() {
 		for(int i=boardList.size()-1; i>=0; i--) {
 			next.push(boardList.get(i));
@@ -62,7 +75,9 @@ public class BoardDAO {
 			now.push(next.pop());
 		}
 	}
-	
+	/**
+	 * 다음페이지 선택시 페이지 세팅해주는 메서드입니다.
+	 */
 	public void nextPage() {
 		if(next.isEmpty()) {
 			System.out.println("==========================================");
@@ -87,6 +102,9 @@ public class BoardDAO {
 		}
 
 	}
+	/**
+	 * 이전페이지 세팅시 페이지 세팅해주는 메서드입니다.
+	 */
 	public void prevPage() {
 		if(prev.isEmpty()) {
 			System.out.println("==========================================");
@@ -110,7 +128,9 @@ public class BoardDAO {
 			now.push(prev.pop());
 		}
 	}
-	
+	/**
+	 * 게시판 글목록 출력 메서드입니다.
+	 */
 	public void getBoardList() {
 		System.out.println("=======================================================");
 		System.out.println("\t\t   [후기 목록]");
@@ -131,7 +151,10 @@ public class BoardDAO {
 		System.out.println("0.이전메뉴, 1.이전페이지, 2.다음페이지");
 		System.out.println("3.상세보기, 4.수정, 5.삭제");
 	}
-	
+	/**
+	 * 게시판 글 상세정보 출력 메서드입니다.
+	 * @param select 선택한 게시판 번호의 글번호입니다.
+	 */
 	public void boardDetail(int select) {
 		if(boardList.isEmpty()) {
 			System.out.println("게시글이 존재하지 않습니다.");
@@ -158,7 +181,10 @@ public class BoardDAO {
 			System.out.println("잘못입력하셨습니다.");
 		}
 	}
-	
+	/**
+	 * 게시판 글 수정을 위한 메서드입니다.
+	 * @param select 선택한 글번호의 메서드를 수정합니다.
+	 */
 	public void boardUpdate(int select) {
 		if(boardList.isEmpty()) {
 			System.out.println("게시글이 존재하지 않습니다.");
@@ -204,6 +230,10 @@ public class BoardDAO {
 		save();
 	}
 
+	/**
+	 * 게시판 글 삭제 메서드입니다.
+	 * @param select 선택한 번호의 글을 삭제합니다.
+	 */
 	public void boardDelete(int select) {
 		if(boardList.isEmpty()) {
 			System.out.println("게시글이 존재하지 않습니다.");
@@ -216,12 +246,13 @@ public class BoardDAO {
 		System.out.println(select + "번 글이  삭제되었습니다.");
 		save();
 	}
-	
+	/**
+	 * 수정된 내용을 저장하는 메서드입니다.
+	 */
 	public void save() {
 		File file = new File(DataPath.postscript);
 
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(file));) {
-
 			for(BoardVO vo : boardList) {
 				//1,4,조기공,친절합니다.,2022-02-02,가나의원
 				String temp = String.format("%s,%s,%s,%s,%s,%s\n"
@@ -232,6 +263,38 @@ public class BoardDAO {
 			System.out.println("저장중 에러가 발생했습니다.");
 			e.printStackTrace();
 		}
+		deleteLastLine();
+	}
+	//공백제거용
+	/**
+	 * 파일 저장 후 마지막 개행문자를 지워주는 메서드입니다.
+	 */
+	private void deleteLastLine() {
+		File oldFile = new File(DataPath.postscript);
+		File newFile = new File(DataPath.temp);
+		try(BufferedReader br = new BufferedReader(new FileReader(new File(DataPath.postscript)));
+				BufferedWriter bw = new BufferedWriter(new FileWriter(new File(DataPath.temp)));) {
+			String lineToRemoveFromFile = "n";
+			String lieFromuserfile;
+			boolean addnewLine = false;
+			while ((lieFromuserfile = br.readLine())!=null) {
+
+				String trimmedLine = lieFromuserfile.trim();
+				if(trimmedLine.equals(lineToRemoveFromFile)) {
+					continue;
+				}
+				if(addnewLine) {
+					bw.newLine();
+				} else {
+					addnewLine = true;
+				}
+				bw.append(lieFromuserfile);
+			}
+		} catch (Exception e) {
+			System.out.println("deleteLastLine 에러");
+		}
+		oldFile.delete();
+		newFile.renameTo(oldFile);
 	}
 	
 	

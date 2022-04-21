@@ -1,5 +1,9 @@
 package hosptial.usersession.admin.forummanagement.forumnboard;
-
+/**
+ * 게시판 글 정보를 담을 클래스입니다.
+ * @author joung
+ *
+ */
 public class BoardVO {
 	private String sequence;
 	private String rating;

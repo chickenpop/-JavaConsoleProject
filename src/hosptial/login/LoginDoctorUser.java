@@ -1,5 +1,6 @@
 package hosptial.login;
 
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -11,8 +12,17 @@ import hosptial.domain.CommonUser;
 import hosptial.domain.DoctorUser;
 import hosptial.domain.User;
 
-public class LoginDoctorUser {
 
+/**
+ * 의사 사용자 로그인 클래스입니다.
+ * @author joung
+ *
+ */
+public class LoginDoctorUser {
+	/**
+	 * 의사 로그인 메인 화면입니다.
+	 * @return 로그인 성공시 true를 리턴해 해당 유저에맞는 메뉴로 보내줍니다.
+	 */
 	public static boolean main() {
 		Scanner sc = new Scanner(System.in);
 		boolean loop = true;

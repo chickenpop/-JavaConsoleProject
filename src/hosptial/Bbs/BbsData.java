@@ -8,15 +8,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import hosptial.DataPath;
-
-
-
+/**
+ * 
+ * @author KIMMINGYU
+ * 파일 데이터  메모리(배열)
+ *
+ */
 public class BbsData {
 	
 	public static ArrayList<BbsPost> plist = new ArrayList<BbsPost>();
 	public static ArrayList<BbsQuestion> qlist = new ArrayList<BbsQuestion>();
 	public static ArrayList<BbsAnswer> alist = new ArrayList<BbsAnswer>();
-	
+	/**
+	 * 후기 plist
+	 * 질문 qlist
+	 * 대답 alist
+	 */
 	public static void load() {
 		
 		try {
@@ -66,7 +73,10 @@ public class BbsData {
 		}
 		
 	}
-	
+	/**
+	 * 메모리 파일 데이터
+	 * plist 후기
+	 */
 	public static void postSave() {
 		
 		try {
@@ -92,7 +102,10 @@ public class BbsData {
 		}
 		
 	}
-	
+	/**
+	 * 메모리 파일 데이터
+	 * qlist 질문
+	 */
 	public static void questionSave() {
 		
 		try {
@@ -117,7 +130,10 @@ public class BbsData {
 		}
 		
 	}
-
+	/**
+	 * 메모리 파일 데이터
+	 * alist 대답
+	 */
 	public static void answerSave() {
 	
 	try {

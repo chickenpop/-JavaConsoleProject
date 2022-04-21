@@ -1,21 +1,14 @@
 package hosptial.usersession.doctor;
 
-// 처방전 클래스
+
+/**
+ * 
+ * @author 처방전 클래스
+ *
+ */
 public class Prescription {
 
-	/*
-	 
-	   * 0 
-	   * 유광재
-	   * 951227-169638
-	   * 1
-	   * 이성원
-	   * 바마마병원
-	   * 우을증약
-	   * 치의학과
-	   * A544
-	   
-	 */
+	
 	
 	private String patientType = "0";
 	private String patientName;
@@ -26,6 +19,19 @@ public class Prescription {
 	private String medicine;
 	private String department;
 	private String diseaseCode;
+	
+	/**
+	 * 
+	 * @param patientType 환자유형
+	 * @param patientName 환자이름
+	 * @param regNum 환자주민등록번호
+	 * @param doctorType 의사유형
+	 * @param doctorName 의사이름
+	 * @param hospitalName 병원이름
+	 * @param medicine 처방약
+	 * @param department 진료과목
+	 * @param diseaseCode 질병분류기호
+	 */
 	
 	// constructor
 	public Prescription(String patientType, String patientName, String regNum, String doctorType,

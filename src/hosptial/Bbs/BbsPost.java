@@ -1,5 +1,10 @@
 package hosptial.Bbs;
-
+/**
+ * 
+ * @author KIMMINGYU
+ * 후기 데이터 생성자, getter, setter
+ *
+ */
 public class BbsPost {
 	
 	private String sequence;
@@ -8,7 +13,15 @@ public class BbsPost {
 	private String text;
 	private String date;
 	private String hospital;
-	
+	/**
+	 * 
+	 * @param sequence 고유번호
+	 * @param grade 평점
+	 * @param name 이름
+	 * @param text 내용
+	 * @param date 작성날짜
+	 * @param hospital 병원명
+	 */
 	public BbsPost(String sequence, String grade, String name, String text, String date, String hospital) {
 		super();
 		this.sequence = sequence;

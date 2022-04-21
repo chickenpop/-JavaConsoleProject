@@ -1,7 +1,14 @@
 package hosptial.usersession.admin.forummanagement;
 
+/**
+ * 게시판 관리 화면 출력 클래스입니다.
+ * @author joung
+ *
+ */
 public class ForumnManageMentOutput {
-
+	/**
+	 * 게시판 관리 메인화면 출력 메서드입니다.
+	 */
 	public static void forumnManagementMain() {
 		System.out.println("=====================================");
 		System.out.println("\t[게시판 관리]");

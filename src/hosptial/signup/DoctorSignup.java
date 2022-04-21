@@ -1,8 +1,16 @@
 package hosptial.signup;
-
+/**
+ * 일반유저 회원가입 클래스입니다.
+ * @author joung
+ *
+ */
 public class DoctorSignup extends UserSignup {
 	
-	
+	/**
+	 * 일반유저 회원가입이 성공하면 메인메뉴로 돌아가게 만드는 메서드입니다.
+	 * @author joung
+	 * @return 성공시 true실패시 false를 리턴합니다.
+	 */
 	public boolean main() {
 		
 		SingupOutput.doctorSignupMain();

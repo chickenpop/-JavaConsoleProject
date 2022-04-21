@@ -9,15 +9,20 @@ import hosptial.DataPath;
 import hosptial.LoginSession;
 import hosptial.domain.DoctorUser;
 
+/**
+ * 
+ * @author 변창현 진료한 환자의 통계를 보여주는 클래스
+ */
 public class F_PatientAverage {
-
+	/**
+	 * 오늘 총 진료한 환자의 데이터값을 처방전으로 받아와서 처방전 작성이 끝난 목록을 도출해준다.
+	 */
 	public void patientAverage() {
 
 		DoctorUser user = (DoctorUser) LoginSession.getSession();
 		ArrayList<Prescription> list = new ArrayList<Prescription>();
-		
-		patientLoad(list);
 
+		patientLoad(list);
 
 		// 오늘 진료한 환자 통계 보기
 		System.out.println("====================");
@@ -31,12 +36,11 @@ public class F_PatientAverage {
 				System.out.printf("이름 : %s\n", prescription.getPatientName());
 				count++;
 			}
-			
+
 		}
 		System.out.println("---------------------------------------");
 		System.out.printf(" 오늘 의사 %s님은 총 %d명의 환자를 진료하셨습니다.\n", user.getName(), count);
 		System.out.println("---------------------------------------");
-		// 처방전을 작성해서 넘겨준 파일을 그냥 환자 목록만 받아서 출력
 
 	}
 
@@ -55,8 +59,8 @@ public class F_PatientAverage {
 
 				String[] temp = line.split(",");
 
-				Prescription prescription = new Prescription(temp[0], temp[1], temp[2], temp[3],
-						temp[4], temp[5], temp[6], temp[7], temp[8]);
+				Prescription prescription = new Prescription(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5],
+						temp[6], temp[7], temp[8]);
 
 				list.add(prescription);
 
@@ -67,8 +71,6 @@ public class F_PatientAverage {
 			System.out.println("FindPatientUserList.load");
 			e.printStackTrace();
 		}
-
-
 
 	}// patientLoad
 
@@ -81,23 +83,13 @@ public class F_PatientAverage {
 
 			for (Prescription prescription : prescription) {
 				/*
-				   * 0 
-				   * 유광재
-				   * 951227-169638
-				   * 1
-				   * 이성원
-				   * 바마마병원
-				   * 우을증약
-				   * 치의학과
-				   * A544
+				 * 0 유광재 951227-169638 1 이성원 바마마병원 우을증약 치의학과 A544
 				 */
 
-				String line =
-						String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s", prescription.getPatientType(),
-								prescription.getPatientName(), prescription.getRegNum(),
-								prescription.getDoctorType(), prescription.getDoctorName(),
-								prescription.getHospitalName(), prescription.getMedicine(),
-								prescription.getDepartment(), prescription.getDiseaseCode());
+				String line = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s", prescription.getPatientType(),
+						prescription.getPatientName(), prescription.getRegNum(), prescription.getDoctorType(),
+						prescription.getDoctorName(), prescription.getHospitalName(), prescription.getMedicine(),
+						prescription.getDepartment(), prescription.getDiseaseCode());
 
 			} // for
 
@@ -107,8 +99,6 @@ public class F_PatientAverage {
 			System.out.println("FindPatientUserList.patientSave");
 			e.printStackTrace();
 		}
-
-
 
 	}// patientSave
 

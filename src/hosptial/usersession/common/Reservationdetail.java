@@ -1,13 +1,17 @@
 package hosptial.usersession.common;
-
+/**
+ * 건강검진예약정보를 담을 메서드입니다
+ * @author 이지영
+ * 
+ */
 
 
 public class Reservationdetail {
-	//조기공 2022-04-27 바가바병원 14:00 
-	private String personName;
-	private String date;
-	private String hospitalcheckupName;
-	private String hour;
+	
+	private String personName;//건강검진자이름
+	private String date;//건강검진예약날짜
+	private String hospitalcheckupName;//건강검진예약병원
+	private String hour;//건강검진예약시간
 	
 
 

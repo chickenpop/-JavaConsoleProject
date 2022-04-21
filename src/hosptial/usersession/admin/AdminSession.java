@@ -4,8 +4,15 @@ import java.util.Scanner;
 import hosptial.usersession.admin.forummanagement.ForumnManagementMain;
 import hosptial.usersession.admin.membermanagement.MemberManagementMain;
 
+/**
+ * 관리자 세션 메인클래스입니다.
+ * @author joung
+ *
+ */
 public class AdminSession {
-
+	/**
+	 * 관리자 세션 메인 화면실행 메서드입니다.
+	 */
 	public void main() {
 		
 		Scanner sc = new Scanner(System.in);
@@ -18,11 +25,9 @@ public class AdminSession {
 			if(input==0) {
 				loop = false;
 			} else if(input==1) {
-				//TODO 멤버관리
 				MemberManagementMain member = new MemberManagementMain();
 				member.main();			
 			} else if(input==2) {
-				//TODO 게시판관리
 				ForumnManagementMain forumn = new ForumnManagementMain();
 				try {
 					forumn.main();

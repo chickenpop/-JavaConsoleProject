@@ -1,5 +1,10 @@
 package hosptial.usersession.admin.membermanagement.memberboard;
 
+/**
+ * 회원의 정보를 담을 메서드입니다.
+ * @author joung
+ *
+ */
 public class MemberVO {						//맴버객체
 	private long number;
 	private String sequence;					//식별번호

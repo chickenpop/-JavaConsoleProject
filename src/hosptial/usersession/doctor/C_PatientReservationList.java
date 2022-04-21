@@ -10,14 +10,21 @@ import hosptial.DataPath;
 import hosptial.LoginSession;
 import hosptial.domain.DoctorUser;
 
+/**
+ * 
+ * @author 변창현 예약한 환자의 목록을 의사의 시점에서 보여주는 클래스
+ *
+ */
 public class C_PatientReservationList {
 
 	DoctorUser user = (DoctorUser) LoginSession.getSession();
 
+	/**
+	 * 처방전 리스트를 받아와서 예약환자 목록을 이름과 총 대기인원수를 보여준다.
+	 */
 	public static ArrayList<Prescription> reservationlist = new ArrayList<Prescription>();
 
 	public void patientReservationList() {
-
 
 		// 예약한 환자 리스트 뽑아서 목록 보여주기
 
@@ -45,11 +52,11 @@ public class C_PatientReservationList {
 		System.out.println("==================================================");
 
 		int count = 0;
-		
+
 		for (Prescription prescription : list) {
 			if (user.getName().equals(prescription.getDoctorName())) {
 				System.out.printf("이름 : %s\n", prescription.getPatientName());
-				count ++;
+				count++;
 			}
 		}
 		System.out.println("--------------------------------------------------");
@@ -57,10 +64,8 @@ public class C_PatientReservationList {
 		System.out.println("--------------------------------------------------");
 		System.out.println();
 
-
 		// 메모리 배열 즉 저장
 		patientSave(list);
-
 
 	}
 
@@ -79,8 +84,8 @@ public class C_PatientReservationList {
 
 				String[] temp = line.split(",");
 
-				Prescription prescription = new Prescription(temp[0], temp[1], temp[2], temp[3],
-						temp[4], temp[5], temp[6], temp[7], temp[8]);
+				Prescription prescription = new Prescription(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5],
+						temp[6], temp[7], temp[8]);
 
 				list.add(prescription);
 
@@ -94,35 +99,24 @@ public class C_PatientReservationList {
 
 	}// patientLoad
 
-	
-	
 	public static void patientSave(ArrayList<Prescription> list) {
 
 		try {
 
-			// 환자목록을 메모리에 파일데이터로 저장 
+			// 환자목록을 메모리에 파일데이터로 저장
 			// 뒤에 이어지게 하고싶으면 datapath뒤에 true 붙일것. 까먹지말것.
 			BufferedWriter patientWriter = new BufferedWriter(new FileWriter(DataPath.처방전, true));
 
 			for (Prescription prescription : prescription) {
+
 				/*
-				   * 0 
-				   * 유광재
-				   * 951227-169638
-				   * 1
-				   * 이성원
-				   * 바마마병원
-				   * 우을증약
-				   * 치의학과
-				   * A544
+				 * 0 유광재 951227-169638 1 이성원 바마마병원 우을증약 치의학과 A544
 				 */
 
-				String line =
-						String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s", prescription.getPatientType(),
-								prescription.getPatientName(), prescription.getRegNum(),
-								prescription.getDoctorType(), prescription.getDoctorName(),
-								prescription.getHospitalName(), prescription.getMedicine(),
-								prescription.getDepartment(), prescription.getDiseaseCode());
+				String line = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s", prescription.getPatientType(),
+						prescription.getPatientName(), prescription.getRegNum(), prescription.getDoctorType(),
+						prescription.getDoctorName(), prescription.getHospitalName(), prescription.getMedicine(),
+						prescription.getDepartment(), prescription.getDiseaseCode());
 			} // for
 
 			patientWriter.close();
@@ -131,8 +125,6 @@ public class C_PatientReservationList {
 			System.out.println("FindPatientUserList.patientSave");
 			e.printStackTrace();
 		}
-
-
 
 	}// patientSave
 }

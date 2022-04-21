@@ -25,7 +25,6 @@ public class ForumnManagementBoard {
 				System.out.print("입력:");
 				int select = Integer.parseInt(sc.nextLine());
 				dao.boardDetail(select);
-				dao = new BoardDAO();
 			} else if(input == 4) { 
 				System.out.println("수정할 글 번호를 선택해주세요.");
 				System.out.print("입력:");

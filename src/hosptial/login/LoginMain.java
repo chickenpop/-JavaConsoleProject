@@ -3,8 +3,16 @@ package hosptial.login;
 import java.util.Scanner;
 import hosptial.signup.SingupOutput;
 
+/**
+ * 로그인 유형 선택 클래스입니다.
+ * @author joung
+ *
+ */
 public class LoginMain {
-
+	/**
+	 * 로그인 유형 선택 메서드입니다.
+	 * @author joung
+	 */
 	public void login() {
 		Scanner sc = new Scanner(System.in);
 		

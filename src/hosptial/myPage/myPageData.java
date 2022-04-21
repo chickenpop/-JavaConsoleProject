@@ -8,12 +8,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import hosptial.DataPath;
-
+/**
+ * 파일 데이터, 메모리(배열)
+ * @author KIMMINGYU
+ *
+ */
 public class myPageData {
 
 	public static ArrayList<info> infolist = new ArrayList<info>();
 	public static ArrayList<medicalInfo> medicalInfoList = new ArrayList<medicalInfo>();
-	
+	/**
+	 * 회원정보 infolist
+	 * 진료내역 medicalInfoList
+	 */
 	public static void load() {
 
 		try {
@@ -21,7 +28,9 @@ public class myPageData {
 			BufferedReader reader = new BufferedReader(new FileReader(DataPath.userData));
 			String line = null;
 			while ((line = reader.readLine()) != null) {
-
+				
+				if(line.length() < 3) continue;
+				
 				String[] temp = line.split(",");
 
 				info a = new info(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6], temp[7]);
@@ -45,12 +54,14 @@ public class myPageData {
 			reader.close();
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
-
+	/**
+	 * 메모리  파일 데이터
+	 * infolist  회원정보
+	 */
 	public static void infoSave() {
 
 		try {
@@ -78,7 +89,10 @@ public class myPageData {
 		}
 
 	}
-	
+	/**
+	 * 메모리  파일 데이터
+	 * medicalInfoList  진료내역
+	 */
 	public static void medicalSave() {
 
 		try {
@@ -100,7 +114,6 @@ public class myPageData {
 			writer.close();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

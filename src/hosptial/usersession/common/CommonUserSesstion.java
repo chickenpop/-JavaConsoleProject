@@ -4,9 +4,17 @@ import java.util.Scanner;
 import hosptial.Bbs.Bbs;
 import hosptial.myPage.myPage;
 import hosptial.searchReservation.Search;
-
+import hosptial.LoginSession;
+import hosptial.Output;
+/**
+ * 일반회원 메뉴 클래스입니다.
+ * @author joung
+ * 
+ */
 public class CommonUserSesstion {
-
+	/**
+	 * 일반회원 메뉴선택 메서드입니다. 
+	 */
 	public void main() {
 
 		Scanner sc = new Scanner(System.in);
@@ -42,7 +50,7 @@ public class CommonUserSesstion {
 			} else if (input == 4) {
 				Search search = new Search();
 				search.medicalSearch();
-				//// 4.로그아웃
+					
 
 			} else if (input == 5) {
 				Checkup checkup = new Checkup();
@@ -53,9 +61,8 @@ public class CommonUserSesstion {
 				b.main();
 
 			} else if (input == 7) {
-				// TODO 메서드 만들어서 기능구현
-				System.out.println("확인용");
-
+				logoutCheck();
+				return;
 			} else {
 				System.out.println("잘못입력");
 			}
@@ -63,5 +70,20 @@ public class CommonUserSesstion {
 		} // while
 
 	}
+	
+	private static void logoutCheck() {
+		if (LoginSession.getSession() != null) {
+			LoginSession.setSession(null);
+			try {
+				if (LoginSession.getSession() == null)
+					Output.logoutSuccess();
+			} catch (Exception e) {
+				System.out.println("로그아웃 시도중 에러가 발생했습니다.");
+				e.printStackTrace();
+			}
+		} else {
+			Output.logoutFail();
+		} // if
+	}// logoutCheck
 
 }

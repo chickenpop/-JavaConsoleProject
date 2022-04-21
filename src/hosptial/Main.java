@@ -1,6 +1,8 @@
 package hosptial;
 
 import java.util.Scanner;
+import hosptial.domain.CommonUser;
+import hosptial.domain.DoctorUser;
 import hosptial.domain.User;
 import hosptial.login.LoginMain;
 import hosptial.searchCovidHospital.SearchCovidHospitalMain;
@@ -8,12 +10,20 @@ import hosptial.signup.SignupMain;
 import hosptial.usersession.admin.AdminSession;
 import hosptial.usersession.common.CommonUserSesstion;
 import hosptial.usersession.doctor.A_DoctorSession;
-
+/**
+ * 프로그램 첫 실행 클래스입니다.
+ * @author joung
+ *
+ */
 public class Main {	
+	/**
+	 * 프로그램 메인화면 출력 메서드입니다.
+	 * @param args 프로그램 실행시 입력받는 매개변수입니다.
+	 * @throws InterruptedException 실행 실패시 오류 메세지를 돌려줍니다.
+	 */
 	public static void main(String[] args) throws InterruptedException {
 		
 		Scanner sc = new Scanner(System.in);
-		
 		while(true) {
 			Output.main();
 			Output.menu();
@@ -53,7 +63,10 @@ public class Main {
 		}//while
 		
 	}
-
+	/**
+	 * 로그아웃을 위한 메서드입니다.
+	 * @author joung
+	 */
 	private static void logoutCheck() {
 		if(LoginSession.getSession()!=null) {
 			LoginSession.setSession(null);
@@ -69,6 +82,10 @@ public class Main {
 		}//if
 	}//logoutCheck
 	
+	/**
+	 * 로그인 성공시 유저세션에 값을 넘겨주기 위한 메서드입니다.
+	 * @author joung
+	 */
 	private static void userSesstion() {
 		User currentUser = LoginSession.getSession();
 		Long userType = currentUser.getUserTypeCheck();

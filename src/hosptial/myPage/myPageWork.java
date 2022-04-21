@@ -7,7 +7,12 @@ import hosptial.Bbs.BbsData;
 import hosptial.Bbs.BbsOutput;
 import hosptial.Bbs.BbsPost;
 import hosptial.domain.User;
-
+/**
+ * 
+ * @author KIMMINGYU
+ * 마이페이지 작업 클래스
+ *
+ */
 public class myPageWork {
 
 	private Scanner scan;
@@ -15,7 +20,9 @@ public class myPageWork {
 	public myPageWork() {
 		this.scan = new Scanner(System.in);
 	}
-
+	/**
+	 * 회원정보 수정하기 메서드
+	 */
 	public void modify() {
 
 		User user = LoginSession.getSession();
@@ -70,7 +77,9 @@ public class myPageWork {
 		System.out.println();
 
 	}
-
+	/**
+	 * 회원탈퇴 메서드
+	 */
 	public void delete() {
 
 		info result = null;
@@ -91,11 +100,13 @@ public class myPageWork {
 		}
 
 	}
-
+	/**
+	 * 진료내역 메서드
+	 */
 	public void medicalInfo() {
 
 		medicalInfo result = null;
-
+		
 		User user = LoginSession.getSession();
 
 		BbsOutput.subtiltle("진료 내역");
