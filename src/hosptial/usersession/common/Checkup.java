@@ -286,7 +286,6 @@ public class Checkup {
 				
 				if (arr[2].equals(value)) {
 
-
 					System.out.println(arr[4] + "님 2022년 해당하는 건강검진 검사항목 입니다.");
 
 					BufferedReader reader = new BufferedReader(new FileReader(DataPath.공통검사));
