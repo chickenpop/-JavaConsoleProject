@@ -27,15 +27,10 @@ public class CommonUserSesstion {
 			System.out.println("5. 건강검진");
 			System.out.println("6. 게시판 작성");
 			System.out.println("7. 로그아웃");
-			System.out.println("0. 뒤로가기");
 			System.out.print("번호 : ");
 			int input = sc.nextInt();
 
-			if (input == 0) {
-				System.out.println("뒤로가기");
-				return;
-
-			} else if (input == 1) {
+			if (input == 1) {
 				myPage a = new myPage();
 				a.main();
 
@@ -62,7 +57,7 @@ public class CommonUserSesstion {
 
 			} else if (input == 7) {
 				logoutCheck();
-				return;
+				break;
 			} else {
 				System.out.println("잘못입력");
 			}
