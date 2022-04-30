@@ -36,11 +36,7 @@ public class A_DoctorSession {
 			System.out.print("번호 : ");
 			int input = sc.nextInt();
 
-			if (input == 0) {
-				System.out.println("뒤로가기");
-				return;
-
-			} else if (input == 1) {
+			if (input == 1) {
 				reservationScadule.reservationScadule();
 			} else if (input == 2) {
 				prescription.prescription();

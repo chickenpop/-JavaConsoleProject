@@ -1,6 +1,8 @@
 package hosptial.usersession.admin;
 
 import java.util.Scanner;
+import hosptial.LoginSession;
+import hosptial.Output;
 import hosptial.usersession.admin.forummanagement.ForumnManagementMain;
 import hosptial.usersession.admin.membermanagement.MemberManagementMain;
 
@@ -23,7 +25,8 @@ public class AdminSession {
 			int input = sc.nextInt();
 			
 			if(input==0) {
-				loop = false;
+				logoutCheck();
+				return;
 			} else if(input==1) {
 				MemberManagementMain member = new MemberManagementMain();
 				member.main();			
@@ -41,6 +44,21 @@ public class AdminSession {
 			
 		}//while
 
+	}
+	
+	private static void logoutCheck() {
+		if(LoginSession.getSession()!=null) {
+			LoginSession.setSession(null);
+			try {
+				if(LoginSession.getSession()==null) 
+					Output.logoutSuccess();
+			} catch (Exception e) {
+				System.out.println("로그아웃 시도중 에러가 발생했습니다.");
+				e.printStackTrace();
+			}
+		} else {
+			Output.logoutFail();
+		}//if
 	}
 
 }

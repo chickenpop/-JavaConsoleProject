@@ -13,7 +13,7 @@ public class AdminSessionOutput {
 		System.out.println("=====================================");
 		System.out.println("1. 회원 관리");
 		System.out.println("2. 게시판 관리");
-		System.out.println("0. 뒤로가기");
+		System.out.println("0. 로그아웃");
 		System.out.print("번호 : ");
 	}
 
