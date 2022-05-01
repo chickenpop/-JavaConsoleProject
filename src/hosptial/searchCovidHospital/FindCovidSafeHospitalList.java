@@ -18,7 +18,7 @@ public class FindCovidSafeHospitalList {
 	 * @param list 국민안심병원 목록
 	 */
 	public FindCovidSafeHospitalList(ArrayList<CovidSafeHospital> list) {
-		FindCovidSafeHospitalList.list = list;
+		this.list = list;
 	}
 
 	/**
@@ -30,14 +30,27 @@ public class FindCovidSafeHospitalList {
 	public static boolean searchCovidSafeHospital() {
 		Scanner sc = new Scanner(System.in);
 		boolean loop = true;
+		
+		// 페이지 길이 지정
+		int currentPage = 1; // 현재 페이지
+		int pageBlock = 10;  // 페이지 당 목록 수
+		int totalPage = list.size()/pageBlock + ((list.size()%pageBlock) > 0 ? 1 : 0); // 총 페이지
+		System.out.println(list.size());
+		
 		while(loop) {
+			
+			// 페이지 목록 번호 지정
+			int currentBlock = currentPage-1;	// 현재 목록 번호
+			int lastBlock = list.size()%pageBlock;		// 마지막 목록 번호
+			int startNum = currentBlock*pageBlock+1;
+			int endNum = currentBlock*pageBlock + (currentPage != totalPage ? 10 : lastBlock);
 			
 			CovidOutput.findPage("국민안심병원", true);
 			if(list.size() > 0) {
 
 				System.out.println("[번호]\t[시도]\t[시군구]\t\t[기관명]\t\t\t[유형]\t\t\t[전화번호]");
 				int cnt = 0;
-				for(CovidSafeHospital c : FindCovidSafeHospitalList.list) {
+				for(CovidSafeHospital c : FindCovidSafeHospitalList.list.subList(startNum, endNum)) {
 					System.out.printf("%4d\t%3s\t%-16s \t%-15s\t%-10s\t%s\n"
 											, ++cnt
 											, c.getCity_do()
@@ -52,13 +65,23 @@ public class FindCovidSafeHospitalList {
 				CovidOutput.bar(true);
 			}
 			
+			for(int i=1; i<=totalPage; i++) {
+				if(i>totalPage) break;
+				if(i==currentPage) System.out.printf("[%d]", i);
+				else System.out.printf("|%d|", i);
+			}
+			System.out.println();
 			System.out.print("0.다시검색하기: ");
-			String keyWord = sc.nextLine();
+			int keyWord = sc.nextInt();
 			
-			if(keyWord.equals("0")) {
+			if(keyWord == 0) {
 				System.out.println("이전으로 돌아갑니다.");
 				loop = false;
-			} 
+			} else if(keyWord >= 1  && keyWord <=totalPage) {
+				currentPage = keyWord;
+			} else {
+				System.out.println("잘못된 입력입니다.");
+			}
 			
 		}
 		return true;
