@@ -17,6 +17,9 @@ public class LoginMain {
 		Scanner sc = new Scanner(System.in);
 		
 		boolean loop = true;
+		
+		//로그인 메뉴
+		
 		while(loop) {
 			LoginOutput.main();
 			LoginOutput.menu();
