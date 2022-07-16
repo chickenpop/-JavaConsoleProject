@@ -5,6 +5,14 @@
 
 <img src="https://img.shields.io/badge/Eclipse IDE-525C86?style=for-the-badge&logo=Eclipse IDE&logoColor=white"> <img src="https://img.shields.io/badge/JAVA-004088?style=for-the-badge&logo=JAVA&logoColor=white"> 
 
+## 프로젝트 인원(총 6명)
+
+- 팀장(본인) : 코로나 안심병원서비스/환자회원 진료예약/건강검진 예약/처방전 작성
+- 팀원 : 회원가입 및 로그인/관리자 페이지
+- 팀원 : 게시판 관리/마이페이지 관리
+- 팀원 : 병원 검색메뉴/환자회원 진료예약
+- 팀원 : 건강검진 대상자 조회/건강검진 예약
+- 팀원 : 환자 예약목록조회 / 의사스케줄관리
 
 ## 핵심업무
 
@@ -31,21 +39,15 @@
  - 회원, 비회원 상관없이 키워드를 통해 근처 코로나 안심병원을 찾는 기능
  - 주소(시도/시군구), 병원기관명, 전화번호를 통해 조건에 맞는 병원 목록을 조회하는 기능
 
-## 프로젝트 인원(총 6명)
-
-- 팀장(본인) : 코로나 안심병원서비스/환자회원 진료예약/건강검진 예약/처방전 작성
-- 팀원 : 회원가입 및 로그인/관리자 페이지
-- 팀원 : 게시판 관리/마이페이지 관리
-- 팀원 : 병원 검색메뉴/환자회원 진료예약
-- 팀원 : 건강검진 대상자 조회/건강검진 예약
-- 팀원 : 환자 예약목록조회 / 의사스케줄관리
+## 순서도
+![병원비대면시스템_순서도](https://user-images.githubusercontent.com/50548923/179360940-129a5060-5f39-43fd-b25c-41557b1e7678.png)
 
 ## 담당 파트 화면 및 상세 내용
 
-![검색창](/HospitalReservation/06.%20%ED%99%94%EB%A9%B4%EC%BA%A1%EC%B3%90/4.%EC%BD%94%EB%A1%9C%EB%82%98%EC%95%88%EC%8B%AC%EB%B3%91%EC%9B%90%EC%B0%BE%EA%B8%B0/%EA%B2%80%EC%83%89%EC%B0%BD/%EA%B5%AD%EB%AF%BC%EC%95%88%EC%8B%AC%EB%B3%91%EC%9B%90%EA%B2%80%EC%83%89%EC%B0%BD.PNG)
-![결과창](/HospitalReservation/06.%20%ED%99%94%EB%A9%B4%EC%BA%A1%EC%B3%90/4.%EC%BD%94%EB%A1%9C%EB%82%98%EC%95%88%EC%8B%AC%EB%B3%91%EC%9B%90%EC%B0%BE%EA%B8%B0/%EB%AA%A9%EB%A1%9D%EC%B0%BD/%EA%B5%AD%EB%AF%BC%EC%95%88%EC%8B%AC%EB%B3%91%EC%9B%90%EB%AA%A9%EB%A1%9D%EC%B0%BD.PNG)
-![검색창](/HospitalReservation/06.%20%ED%99%94%EB%A9%B4%EC%BA%A1%EC%B3%90/4.%EC%BD%94%EB%A1%9C%EB%82%98%EC%95%88%EC%8B%AC%EB%B3%91%EC%9B%90%EC%B0%BE%EA%B8%B0/%EA%B2%80%EC%83%89%EC%B0%BD/%ED%98%B8%ED%9D%A1%EA%B8%B0%ED%81%B4%EB%A6%AC%EB%8B%89%EA%B2%80%EC%83%89%EC%B0%BD.PNG)
-![결과창](/HospitalReservation/06.%20%ED%99%94%EB%A9%B4%EC%BA%A1%EC%B3%90/4.%EC%BD%94%EB%A1%9C%EB%82%98%EC%95%88%EC%8B%AC%EB%B3%91%EC%9B%90%EC%B0%BE%EA%B8%B0/%EB%AA%A9%EB%A1%9D%EC%B0%BD/%ED%98%B8%ED%9D%A1%EA%B8%B0%ED%81%B4%EB%A6%AC%EB%8B%89%EB%AA%A9%EB%A1%9D%EC%B0%BD.PNG)
+![국민안심병원검색창](https://user-images.githubusercontent.com/50548923/179360983-66fba4df-c94c-4ee5-bca0-ed16fc15ded1.PNG)
+![국민안심병원목록창](https://user-images.githubusercontent.com/50548923/179360989-20232e6a-234a-40ee-856b-417d2ba23735.PNG)
+![호흡기클리닉검색창](https://user-images.githubusercontent.com/50548923/179360982-3b544a9f-663d-45fc-9efc-3d69654925e1.PNG)
+![호흡기클리닉목록창](https://user-images.githubusercontent.com/50548923/179360990-d764d152-a491-42df-90de-5077db5f22af.PNG)
 - 코로나 안심병원 조회 
   - 국가에서 운영하는 코로나 안심병원, 호흡기 전담 클리닉 등 원하는 병원을 조회하는 기능
     - 검색 가능한 경우
@@ -53,13 +55,14 @@
     - 기관명 : 대학병원, 의원
     - 전화번호 : 02, 1577
   - 개인 아이디어로 실제 운영되는 사이트에서 데이터를 수집해 가공, 수정하여 제작
-
-![처방전환자선택](/HospitalReservation/06.%20%ED%99%94%EB%A9%B4%EC%BA%A1%EC%B3%90/2.%EC%9D%98%EC%82%AC/%EC%9D%98%EC%82%AC%20%EB%A1%9C%EA%B7%B8%EC%9D%B8/%EC%9D%98%EC%82%AC%20%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4/02.%20%EC%B2%98%EB%B0%A9%EC%A0%84%20%EC%9E%91%EC%84%B1/01.%20%EC%B2%98%EB%B0%A9%EC%A0%84%ED%99%98%EC%9E%90%EB%AA%A9%EB%A1%9D(%EC%84%A0%ED%83%9D).PNG)![처방전환자작성](/HospitalReservation/06.%20%ED%99%94%EB%A9%B4%EC%BA%A1%EC%B3%90/2.%EC%9D%98%EC%82%AC/%EC%9D%98%EC%82%AC%20%EB%A1%9C%EA%B7%B8%EC%9D%B8/%EC%9D%98%EC%82%AC%20%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4/02.%20%EC%B2%98%EB%B0%A9%EC%A0%84%20%EC%9E%91%EC%84%B1/02.%20%EC%B2%98%EB%B0%A9%EC%A0%84%EC%9E%91%EC%84%B1%EC%99%84%EB%A3%8C.PNG)
+  
+![01  처방전환자목록(선택)](https://user-images.githubusercontent.com/50548923/179361063-2698e941-3ca8-4a2f-b1e9-e15e4a7fc030.PNG)![02  처방전작성완료](https://user-images.githubusercontent.com/50548923/179361064-bbc4e9fa-66d8-4d41-ab23-00341705e054.PNG)
 - 처방전 기능 
   - 예약된 환자에 대해 처방전을 작성할 수 있는 기능
 
-![병원예약_날짜](/HospitalReservation/06.%20%ED%99%94%EB%A9%B4%EC%BA%A1%EC%B3%90/1.%ED%99%98%EC%9E%90/05_%EA%B1%B4%EA%B0%95%EA%B2%80%EC%A7%84/%EA%B1%B4%EA%B0%95%EA%B2%80%EC%A7%84%EC%98%88%EC%95%BD/6.%EA%B1%B4%EA%B0%95%EA%B2%80%EC%A7%84%EB%82%A0%EC%A7%9C%EC%98%88%EC%95%BD%ED%99%94%EB%A9%B4.jpg)![병원예약_시간](/HospitalReservation/06.%20%ED%99%94%EB%A9%B4%EC%BA%A1%EC%B3%90/1.%ED%99%98%EC%9E%90/05_%EA%B1%B4%EA%B0%95%EA%B2%80%EC%A7%84/%EA%B1%B4%EA%B0%95%EA%B2%80%EC%A7%84%EC%98%88%EC%95%BD/7.%EA%B1%B4%EA%B0%95%EA%B2%80%EC%A7%84%EC%8B%9C%EA%B0%84%EC%98%88%EC%95%BD%ED%99%94%EB%A9%B4.jpg)
-![병원예약_완료](/HospitalReservation/06.%20%ED%99%94%EB%A9%B4%EC%BA%A1%EC%B3%90/1.%ED%99%98%EC%9E%90/05_%EA%B1%B4%EA%B0%95%EA%B2%80%EC%A7%84/%EA%B1%B4%EA%B0%95%EA%B2%80%EC%A7%84%EC%98%88%EC%95%BD/8.%EA%B1%B4%EA%B0%95%EA%B2%80%EC%A7%84%EC%98%88%EC%95%BD%EB%82%B4%EC%97%AD%ED%99%95%EC%9D%B8.jpg)
+![6 건강검진날짜예약화면](https://user-images.githubusercontent.com/50548923/179361081-f8cb1c3f-d91e-4ee8-848f-8f8980ebe2d9.jpg)
+![7 건강검진시간예약화면](https://user-images.githubusercontent.com/50548923/179361082-1cf8f8f3-db8c-4d82-a9dd-2d1241df7c31.jpg)
+![8 건강검진예약내역확인](https://user-images.githubusercontent.com/50548923/179361084-3c88355a-f049-41d4-a716-ec04f1f1cb27.jpg)
 - 건강 검진 예약 및 병원 예약
   - 건강 검진 예약은 연령에 따라 검진할 수 있는 병원 목록을 출력 및 예약시스템 연결되는 기능
   - 병원 예약은 병원을 선택하면 예약시스템 연결되는 기능
